@@ -3,7 +3,7 @@ package magic;
 import Cards.Card;
 import Creatures.Creature;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 //contiene creature e permanenti suddivisi per i due giocatori
 public class Board {

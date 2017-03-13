@@ -21,4 +21,9 @@ public class Draw {
             }
         }
     }
+    
+    public void execute(){
+        this.drawCard();
+    }
+    
 }
