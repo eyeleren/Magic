@@ -10,3 +10,4 @@ public class Board {
     public List<Creature> boardp1 = new LinkedList<Creature>();
     public List<Creature> boardp2 = new LinkedList<Creature>();
 }
+

@@ -48,5 +48,7 @@ public class Giocatore {
         return id;
     }
     
-    
+    public int qtVita() {
+        return health;
+    }
 }
