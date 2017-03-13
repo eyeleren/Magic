@@ -10,7 +10,38 @@ public class Giocatore {
     public String name;
     public int id;
     public int health;
+    public boolean looses = false;
     public List<Card> deck = new LinkedList<Card>();
     public List<Card> hand = new LinkedList<Card>();
-       
+    
+    public boolean getLooses(){
+        return looses;
+    }
+    
+    public void setLooses(boolean l){
+        this.looses = l;
+    }
+    
+    
+    public int lungMano(){
+        return hand.size();
+        }
+    
+    public int lungMazzo(){
+        return deck.size();
+        }
+    
+    public Card pescata(){
+        return deck.remove(0);
+    }
+    
+    public void addCard(Card e){
+        hand.add(e);
+    }
+    
+    //modificata dall'input via terminale
+    public int scartaCarta(){
+        return 0;
+    }
+    
 }

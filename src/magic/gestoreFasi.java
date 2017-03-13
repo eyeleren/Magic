@@ -15,11 +15,11 @@ import magic.Fasi.mainPhase;
 public class gestoreFasi{
     public List<Phase> fasi = new LinkedList<Phase>();
     
-    public void phaseCalls(){
+    public void phaseCalls(int g){
         Phase a;
         while(!fasi.isEmpty()){
             a = fasi.remove(0);
-            a.execute();
+            a.execute(g);
         }
     }
     
