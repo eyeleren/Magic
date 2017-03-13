@@ -15,7 +15,7 @@ import magic.Fasi.mainPhase;
 public class gestoreFasi{
     public List<Phase> fasi = new LinkedList<Phase>();
     
-    public void phaseCalls(int g){
+    public void phaseCalls(Giocatore g){
         Phase a;
         while(!fasi.isEmpty()){
             a = fasi.remove(0);
