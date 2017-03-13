@@ -10,5 +10,5 @@ package magic.Fasi;
  * @author Roberto
  */
 public interface Phase {
-    
+    public void execute();
 }

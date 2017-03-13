@@ -3,21 +3,11 @@ package Cards;
 
 
 public interface Card {
-    
-    //effetto della carta
-    public void attivazione();
-    
-    
-    //public void effetto();
-    
-    //rimuovo la carta dal gioco dopo averne risolto l'effetto
-    public void rimuovi();
-    
-    
-    
-    
-    
-    
+    public void getName();
+    public void getType();
+    public void getDescription();
+    public void activate();
+    public void remove();
     
     
 }
