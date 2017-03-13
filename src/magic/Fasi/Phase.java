@@ -5,10 +5,12 @@
  */
 package magic.Fasi;
 
+import magic.Giocatore;
+
 /**
  *
  * @author Roberto
  */
 public interface Phase {
-    public void execute(int giocatore);
+    public void execute(Giocatore giocatore);
 }
