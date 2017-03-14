@@ -1,23 +1,28 @@
 
 package magic;
 
+import static magic.Interfaccia.*;
+
 public class Magic {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        //Inserire linizializzazione di tutto
+        //Inserire l'inizializzazione di tutto
         boolean loose;
         int turn;
+        String nome1, nome2;
         Giocatore g1 = new Giocatore();
         Giocatore g2 = new Giocatore();
         Board campo = new Board();
         Stack seq = new Stack();
         //Parte dell'interfaccia che fa costruire il mazzo etc
         gestoreFasi Gfasi = new gestoreFasi();
-        
+        Gfasi.resetPhaseList();
         //Avvio del gioco
+        System.out.println("Benvenuti in Magic!!!");
+        System.out.println("Prego inserire i nomi dei giocatori:");
+        nome1 = ;
+        nome2 = ;
+        setPlayers(g1, g2, nome1, nome2);
         loose = false;
         turn = 1;
         while(!loose){
@@ -33,6 +38,13 @@ public class Magic {
             }
         }
         //Termine del gioco con dichiarazione vittoria sconfitta.
+        if(turn == 1){
+            System.out.println("Congratulazioni!!! Il giocatore" + g1.name + "ha vinto la partita!");
+        }
+        else{
+            System.out.println("Congratulazioni!!! Il giocatore" + g2.name + "ha vinto la partita!");
+        }
+        System.out.println("Fine del gioco.");
     }
     
 }

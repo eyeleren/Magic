@@ -5,13 +5,15 @@
         <group>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Stack.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Giocatore.java</file>
-            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/Cards/Card.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/gestoreFasi.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Phase.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Board.java</file>
-            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/Spell/Spell.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Draw.java</file>
-            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/Creatures/Creature.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/End.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Combat.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Untap.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Magic.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/mainPhase.java</file>
         </group>
     </open-files>
 </project-private>

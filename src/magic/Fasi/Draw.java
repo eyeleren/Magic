@@ -28,5 +28,4 @@ public class Draw implements Phase{
     public boolean execute(Giocatore giocatore, Board campo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

@@ -29,7 +29,7 @@ public class gestoreFasi{
         while(!fasi.isEmpty()){
             a = fasi.remove(0);
             r = a.execute(g, b);
-            if(!r)
+            if(r)
                 return true;
         }
         return false;
