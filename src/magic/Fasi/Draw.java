@@ -1,4 +1,5 @@
 package magic.Fasi;
+
 import magic.Board;
 import magic.Giocatore;
 
