@@ -15,12 +15,24 @@ import magic.Fasi.mainPhase;
 public class gestoreFasi{
     public List<Phase> fasi = new LinkedList<Phase>();
     
-    public void phaseCalls(Giocatore g){
+    private Giocatore g;
+    private Board b;
+    
+    public void setGiocatoreAndBoard(Giocatore a, Board h){
+        this.b = h;
+        this.g = a;
+    }
+    
+    public boolean phaseCalls(Giocatore g, Board b){
         Phase a;
+        boolean r;
         while(!fasi.isEmpty()){
             a = fasi.remove(0);
-            a.execute(g);
+            r = a.execute(g, b);
+            if(!r)
+                return true;
         }
+        return false;
     }
     
     public void addPhase(Phase e, int position){
@@ -38,10 +50,10 @@ public class gestoreFasi{
         Combat n3 =  new Combat();
         mainPhase n4 = new mainPhase();
         End n5 = new End();
-        fasi.add((Phase) n1);
-        fasi.add((Phase) n2);
-        fasi.add((Phase) n3);
-        fasi.add((Phase) n4);
-        fasi.add((Phase) n5);
+        fasi.add(n1);
+        fasi.add(n2);
+        fasi.add(n3);
+        fasi.add(n4);
+        fasi.add(n5);
     }
 }

@@ -11,8 +11,8 @@ public class Giocatore {
     public int id;
     public int health;
     public boolean looses = false;
-    public List<Card> deck = new LinkedList<Card>();
-    public List<Card> hand = new LinkedList<Card>();
+    public List<Card> deck = new LinkedList<>();
+    public List<Card> hand = new LinkedList<>();
     
     public boolean getLooses(){
         return looses;

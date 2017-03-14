@@ -2,13 +2,14 @@
 package magic;
 
 import Spell.Spell;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 
 //lista ordinata di spell per la risoluzione degli effetti
 public class Stack {
-    private LinkedList<Spell> s = new LinkedList<Spell>();
+    private LinkedList<Spell> s = new LinkedList<>();
     
     /*Il controllo di cosa viene messo nello stack, in particolare se il primo è un stregoneria o una creatura,
     e che i successivi siano tutto il resto è lasciato alla struttura di funzioni dell'interfaccia che può usare le successive
@@ -26,10 +27,8 @@ public class Stack {
     }
     
     /*Funzione per avere una visione di ciò che è stato caricato nello stack, non funzia*/
-    public List<String> view(){
-        List<String> vista = new List<String>();
-        
-        //s.element();
+    public List<Spell> view(){
+        List<Spell> vista = new ArrayList<>(s);
         return vista;
     }
     

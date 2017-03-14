@@ -5,6 +5,7 @@
  */
 package magic.Fasi;
 
+import magic.Board;
 import magic.Giocatore;
 
 /**
@@ -12,5 +13,5 @@ import magic.Giocatore;
  * @author Roberto
  */
 public interface Phase {
-    public void execute(Giocatore giocatore);
+    public boolean execute(Giocatore giocatore, Board campo);
 }

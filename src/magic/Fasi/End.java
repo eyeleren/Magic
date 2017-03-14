@@ -6,11 +6,11 @@ import magic.Board;
 import magic.Giocatore;
 import java.util.*;
 
-public class End {
+public class End implements Phase{
     public Giocatore player;
     public Creature creature;
     public Board b;
-//    
+    
     Iterator x = b.boardp1.listIterator(0);
     Iterator y = b.boardp2.listIterator(0);
 
@@ -37,6 +37,7 @@ public class End {
         
     }
     
+    //Sistemare da qui in giù
     public void execute(){
         if (player.getId() == 1){
             this.basevita1();
@@ -45,5 +46,10 @@ public class End {
             this.basevita2();
         }
     }    
+
+    @Override
+    public boolean execute(Giocatore giocatore, Board campo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }   
