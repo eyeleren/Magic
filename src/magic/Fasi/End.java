@@ -38,18 +38,16 @@ public class End implements Phase{
     }
     
     //Sistemare da qui in giù
-    public void execute(){
+    public boolean execute(Giocatore player, Board b){
+        this.player = player;
         if (player.getId() == 1){
             this.basevita1();
+            return false;
         }
         else{
             this.basevita2();
+            return false;
         }
-    }    
-
-    @Override
-    public boolean execute(Giocatore giocatore, Board campo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }        
 
 }   
