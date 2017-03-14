@@ -1,6 +1,7 @@
 
 package magic;
 
+import java.io.Console;
 import static magic.Interfaccia.*;
 
 public class Magic {
@@ -15,13 +16,18 @@ public class Magic {
         Board campo = new Board();
         Stack seq = new Stack();
         //Parte dell'interfaccia che fa costruire il mazzo etc
-        gestoreFasi Gfasi = new gestoreFasi();
-        Gfasi.resetPhaseList();
+        GestoreFasi Gfasi = new GestoreFasi();
+        Gfasi.resetPhaseList(campo);
         //Avvio del gioco
+        Console console = System.console();
+        if (console == null) {
+            System.err.println("No console.");
+            System.exit(1);
+        }
         System.out.println("Benvenuti in Magic!!!");
         System.out.println("Prego inserire i nomi dei giocatori:");
-        nome1 = ;
-        nome2 = ;
+        nome1 = console.readLine();
+        nome2 = console.readLine();
         setPlayers(g1, g2, nome1, nome2);
         loose = false;
         turn = 1;
@@ -29,12 +35,12 @@ public class Magic {
             if(turn == 1){
                 turn = 2;
                 loose = Gfasi.phaseCalls(g1, campo);
-                Gfasi.resetPhaseList();
+                Gfasi.resetPhaseList(campo);
             }
             else{
                 turn = 1;
                 loose = Gfasi.phaseCalls(g2, campo);
-                Gfasi.resetPhaseList();
+                Gfasi.resetPhaseList(campo);
             }
         }
         //Termine del gioco con dichiarazione vittoria sconfitta.

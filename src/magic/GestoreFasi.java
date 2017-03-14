@@ -12,7 +12,7 @@ import magic.Fasi.mainPhase;
 
 
 
-public class gestoreFasi{
+public class GestoreFasi{
     public List<Phase> fasi = new LinkedList<Phase>();
     
     private Giocatore g;
@@ -43,13 +43,13 @@ public class gestoreFasi{
         fasi.remove(position);
     }
     
-    public void resetPhaseList(){
+    public void resetPhaseList(Board board){
         fasi.clear();
         Draw n1 = new Draw();
-        Untap n2 = new Untap();
+        Untap n2 = new Untap(board);
         Combat n3 =  new Combat();
         mainPhase n4 = new mainPhase();
-        End n5 = new End();
+        End n5 = new End(board);
         fasi.add(n1);
         fasi.add(n2);
         fasi.add(n3);

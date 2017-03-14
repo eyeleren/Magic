@@ -11,9 +11,15 @@ public class End implements Phase{
     public Creature creature;
     public Board b;
     
-    Iterator x = b.boardp1.listIterator(0);
-    Iterator y = b.boardp2.listIterator(0);
-
+    Iterator x;
+    Iterator y;
+    
+    public End(Board b){
+        this.b = b;
+        x = b.boardp1.listIterator(0);
+        y = b.boardp2.listIterator(0);
+    }
+    
     public void basevita1(){
         b.boardp1.get(0).regen();
             while(x.hasNext()){
