@@ -1,4 +1,5 @@
 package magic.Fasi;
+
 import magic.Board;
 import magic.Giocatore;
 
@@ -14,8 +15,6 @@ public class Draw implements Phase{
                 player.addCard(player.pescata());
                 
                 player.hand.remove(player.scartaCarta());
-                
-                
             }
             else{
                 player.addCard(player.pescata());
@@ -25,7 +24,15 @@ public class Draw implements Phase{
     //Sistemare da qui in giù
 
     @Override
-    public boolean execute(Giocatore giocatore, Board campo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean execute(Giocatore giocatore, Board campo) {    
+        this.player = giocatore;
+        this.drawCard();
+        if (player.looses = true){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
     }
 }
