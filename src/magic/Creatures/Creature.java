@@ -1,5 +1,5 @@
 
-package Creatures;
+package magic.Creatures;
 
 
 public interface Creature {

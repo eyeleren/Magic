@@ -1,7 +1,7 @@
 
 package magic.Fasi;
 
-import Creatures.Creature;
+import magic.Creatures.Creature;
 import magic.Board;
 import magic.Giocatore;
 

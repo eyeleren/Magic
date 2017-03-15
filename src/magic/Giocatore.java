@@ -2,7 +2,7 @@ package magic;
 
 //il giocatore contiene mazzo di carte, mano, hp e nome
 
-import Cards.Card;
+import magic.Cards.Card;
 import java.util.LinkedList;
 import java.util.List;
 

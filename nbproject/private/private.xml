@@ -2,40 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< Updated upstream
         <group>
-<<<<<<< Updated upstream
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Stack.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Giocatore.java</file>
-            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/gestoreFasi.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Phase.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Board.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Interfaccia.java</file>
+            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/GestoreFasi.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Draw.java</file>
-<<<<<<< HEAD
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/End.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Combat.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/Untap.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Magic.java</file>
             <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/magic/Fasi/mainPhase.java</file>
-=======
-            <file>file:/C:/Users/Roberto/Documents/Netbeans%20projects/Magic/src/Creatures/Creature.java</file>
-=======
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Magic.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Stack.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Fasi/Draw.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Board.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Fasi/End.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Fasi/Phase.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/gestoreFasi.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Giocatore.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Fasi/Combat.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/magic/Fasi/Untap.java</file>
-            <file>file:/C:/Users/Lorenzo/Desktop/Università/PO/Magic/src/Creatures/Creature.java</file>
->>>>>>> Stashed changes
->>>>>>> master
         </group>
-=======
-        <group/>
->>>>>>> Stashed changes
     </open-files>
 </project-private>

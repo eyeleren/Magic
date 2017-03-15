@@ -1,6 +1,6 @@
 package magic;
 
-import Creatures.Creature;
+import magic.Creatures.Creature;
 import java.util.LinkedList;
 import java.util.*;
 

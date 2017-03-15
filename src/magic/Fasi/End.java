@@ -1,6 +1,6 @@
 package magic.Fasi;
 
-import Creatures.Creature;
+import magic.Creatures.Creature;
 import java.util.Iterator;
 import magic.Board;
 import magic.Giocatore;

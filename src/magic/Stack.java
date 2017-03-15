@@ -1,7 +1,7 @@
 
 package magic;
 
-import Spell.Spell;
+import magic.Spells.Spell;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
