@@ -32,7 +32,8 @@ public class Giocatore {
         }
     
     public boolean noIstant(){
-        
+        //da implementare
+        return false;
     }
     
     public Card pescata(){

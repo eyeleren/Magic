@@ -54,7 +54,7 @@ public class Magic {
             }
         }
         //Termine del gioco con dichiarazione vittoria sconfitta.
-        if(turn == 1){
+        if(turn == 1){//cambiare il controllo sul campo looses del giocatore non sul turno.
             System.out.println("Congratulazioni!!! Il giocatore " + g1.name + " ha vinto la partita!");
         }
         else{

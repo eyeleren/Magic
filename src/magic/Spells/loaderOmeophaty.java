@@ -12,8 +12,9 @@ package magic.Spells;
 public class loaderOmeophaty implements Spell{
 
     @Override
-    public void cast() {
+    public boolean cast() {
         System.out.println("Omeophaty è stata lanciata, ma non succede niente.");
+        return false;
     }
     
 }

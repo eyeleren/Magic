@@ -20,10 +20,12 @@ public class mainPhase implements Phase{
     
     @Override
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException {
+        boolean l;
         System.out.println(giocatore1.name + " la tua main phase è iniziata");
         chargeStack(giocatore1, giocatore2, campo, buff, stack);
-        
-        return false;
+        System.out.println("Fine del caricamento dello stack, ora verrà risolto.");
+        l =  stack.resolveStack();
+        return l;
     }
 
 }

@@ -32,11 +32,15 @@ public class Stack {
         return vista;
     }
     
-    public void resolveStack(){
+    public boolean resolveStack(){
         Spell a;
+        boolean loose;
         while(!s.isEmpty()){
             a = s.pop();
-            a.cast();
+            loose = a.cast();
+            if(loose)
+                return loose;
         }
+        return false;
     }
 }

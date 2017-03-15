@@ -2,6 +2,6 @@
 package magic.Spells;
 
 public interface Spell {
-    public void cast();
+    public boolean cast();
 
 }

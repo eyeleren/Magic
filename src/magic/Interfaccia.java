@@ -52,15 +52,33 @@ public class Interfaccia {
         c = giocatore1.hand.remove(chosen);
         c.activate(stack);
         empty = giocatore2.noIstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
-        while(!passes1 && !passes2 && !empty){
-            if(turn == 1){
+        while((!passes1 || !passes2) && !empty){
+            if(turn == 1 && !passes1){
                 turn = 2;
-                
+                System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo");
+                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata
+                if(chosen >= 0){
+                    chosen = Integer.parseInt(buff.readLine());
+                    c = giocatore2.hand.remove(chosen);
+                    c.activate(stack);
+                }
+                else{
+                    passes1 = true;
+                }
                 empty = giocatore1.noIstant();
             }
-            else{
+            else if(!passes2){
                 turn = 1;
-                
+                System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo");
+                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata
+                if(chosen >= 0){
+                    chosen = Integer.parseInt(buff.readLine());
+                    c = giocatore1.hand.remove(chosen);
+                    c.activate(stack);
+                }
+                else{
+                    passes2 = true;
+                }
                 empty = giocatore2.noIstant();
             }
         }
