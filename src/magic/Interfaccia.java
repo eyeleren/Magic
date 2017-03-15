@@ -39,6 +39,33 @@ public class Interfaccia {
         System.out.println("\n");
     }
     
+    public static void chargeStack(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff, Stack stack) throws IOException{
+        int chosen;
+        Card c;
+        boolean passes1 = false;
+        boolean passes2 = false;
+        boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
+        int turn = 2;
+        System.out.println(giocatore1.name + " scegli una carta da giocare");
+        showCards(giocatore1.hand);
+        chosen = Integer.parseInt(buff.readLine());
+        c = giocatore1.hand.remove(chosen);
+        c.activate(stack);
+        empty = giocatore2.noIstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
+        while(!passes1 && !passes2 && !empty){
+            if(turn == 1){
+                turn = 2;
+                
+                empty = giocatore1.noIstant();
+            }
+            else{
+                turn = 1;
+                
+                empty = giocatore2.noIstant();
+            }
+        }
+    }
+    
     public static void setDeck(Giocatore g, LinkedList carte, BufferedReader buff) throws IOException{
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name);

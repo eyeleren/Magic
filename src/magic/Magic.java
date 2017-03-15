@@ -35,6 +35,7 @@ public class Magic {
         //Inizializzazione (preparazione da parte dei giocatori) dei mazzi
         setDeck(g1, carte, buff);
         setDeck(g2, carte, buff);
+        //Vanno mescolate le carte
         //Inizializzazione delle mani dei giocatori: bigona farli pescare 5 carte ciascuno
         loose = false;
         turn = 1;
@@ -42,13 +43,13 @@ public class Magic {
             if(turn == 1){
                 System.out.println("Inizio del turno di " + g1.name);
                 turn = 2;
-                loose = Gfasi.phaseCalls(g1, campo);
+                loose = Gfasi.phaseCalls(g1, g2, campo, buff);
                 Gfasi.resetPhaseList(campo);
             }
             else{
                 System.out.println("Inizio del turno di " + g2.name);
                 turn = 1;
-                loose = Gfasi.phaseCalls(g2, campo);
+                loose = Gfasi.phaseCalls(g2, g1, campo, buff);
                 Gfasi.resetPhaseList(campo);
             }
         }

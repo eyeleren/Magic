@@ -1,10 +1,10 @@
 package magic.Fasi;
 
+import java.io.BufferedReader;
 import magic.Creatures.Creature;
 import java.util.Iterator;
 import magic.Board;
 import magic.Giocatore;
-import java.util.*;
 
 public class End implements Phase{
     public Giocatore player;
@@ -43,9 +43,8 @@ public class End implements Phase{
         
     }
     
-    //Sistemare da qui in giù
-    public boolean execute(Giocatore player, Board b){
-        this.player = player;
+    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
+        this.player = giocatore1;
         if (player.getId() == 1){
             this.basevita1();
             return false;
@@ -55,5 +54,4 @@ public class End implements Phase{
             return false;
         }
     }        
-
 }   

@@ -5,6 +5,7 @@
  */
 package magic.Fasi;
 
+import java.io.BufferedReader;
 import magic.Board;
 import magic.Giocatore;
 
@@ -13,5 +14,5 @@ import magic.Giocatore;
  * @author Roberto
  */
 public interface Phase {
-    public boolean execute(Giocatore giocatore, Board campo);
+    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff);
 }

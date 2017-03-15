@@ -1,5 +1,6 @@
 package magic.Fasi;
 
+import java.io.BufferedReader;
 import magic.Board;
 import magic.Giocatore;
 
@@ -23,16 +24,10 @@ public class Draw implements Phase{
     }
     //Sistemare da qui in giù
 
-    @Override
-    public boolean execute(Giocatore giocatore, Board campo) {    
-        this.player = giocatore;
+    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) {    
+        this.player = giocatore1;
         this.drawCard();
-        if (player.looses = true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return player.looses = true;
         
     }
 }

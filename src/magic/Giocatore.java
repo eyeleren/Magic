@@ -11,8 +11,8 @@ public class Giocatore {
     public int id;
     public int health;
     public boolean looses = false;
-    public List<Card> deck = new LinkedList<>();
-    public List<Card> hand = new LinkedList<>();
+    public LinkedList<Card> deck = new LinkedList<>();
+    public LinkedList<Card> hand = new LinkedList<>();
     
     public boolean getLooses(){
         return looses;
@@ -30,6 +30,10 @@ public class Giocatore {
     public int lungMazzo(){
         return deck.size();
         }
+    
+    public boolean noIstant(){
+        
+    }
     
     public Card pescata(){
         return deck.remove(0);

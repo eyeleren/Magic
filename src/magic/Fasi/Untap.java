@@ -1,6 +1,7 @@
 
 package magic.Fasi;
 
+import java.io.BufferedReader;
 import magic.Creatures.Creature;
 import magic.Board;
 import magic.Giocatore;
@@ -9,7 +10,6 @@ import java.util.*;
 
 public class Untap implements Phase{
     public Board b;
-    public Giocatore player;
     Iterator x;
     Iterator y;
     public Untap(Board b){
@@ -35,9 +35,9 @@ public class Untap implements Phase{
             p.untap();
         }
     }
-    //Sistemare da qui in giù
-    public boolean execute(Giocatore player, Board b){
-        if (player.getId() == 1){
+    
+    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
+        if (giocatore1.getId() == 1){
             this.detap1();
             return false;
         }

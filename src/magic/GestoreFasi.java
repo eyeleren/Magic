@@ -1,6 +1,7 @@
 
 package magic;
 
+import java.io.BufferedReader;
 import java.util.LinkedList;
 import java.util.List;
 import magic.Fasi.Combat;
@@ -13,7 +14,7 @@ import magic.Fasi.mainPhase;
 
 
 public class GestoreFasi{
-    public List<Phase> fasi = new LinkedList<Phase>();
+    public List<Phase> fasi = new LinkedList<>();
     
     private Giocatore g;
     private Board b;
@@ -23,12 +24,12 @@ public class GestoreFasi{
         this.g = a;
     }
     
-    public boolean phaseCalls(Giocatore g, Board b){
+    public boolean phaseCalls(Giocatore g1, Giocatore g2, Board b, BufferedReader buff){
         Phase a;
         boolean r;
         while(!fasi.isEmpty()){
             a = fasi.remove(0);
-            r = a.execute(g, b);
+            r = a.execute(g1, g2, b, buff);
             if(r)
                 return true;
         }

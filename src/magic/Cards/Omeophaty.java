@@ -1,6 +1,10 @@
 
 package magic.Cards;
 
+import magic.Spells.Spell;
+import magic.Spells.loaderOmeophaty;
+import magic.Stack;
+
 public class Omeophaty implements Card{
 
     String name;
@@ -28,9 +32,9 @@ public class Omeophaty implements Card{
         return this.description;
     }
 
-    @Override
-    public void activate() {
-        return;
+    public void activate(Stack s) {
+        Spell a = new loaderOmeophaty();
+        s.addSpell(a);
     }
 
     @Override
