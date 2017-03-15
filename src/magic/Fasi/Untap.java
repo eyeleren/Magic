@@ -24,7 +24,7 @@ public class Untap implements Phase{
             Creature p;
             p = (Creature) x.next();
             p.untap();
-        }    
+        }
     }
 
     public void detap2(){
@@ -46,4 +46,4 @@ public class Untap implements Phase{
             return false;
         }
     }
-}     
+}

@@ -4,6 +4,8 @@ package magic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import magic.Cards.Card;
 import static magic.Interfaccia.*;
 
 public class Magic {
@@ -20,6 +22,8 @@ public class Magic {
         GestoreFasi Gfasi = new GestoreFasi();
         Gfasi.resetPhaseList(campo);
         //Necessario inserire la creazione della lista di tutte le carte esistenti.
+        LinkedList<Card> carte = new LinkedList<>();
+        createOriginalDeck(carte);
         //Avvio del gioco
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Benvenuti in Magic!!!");
@@ -29,8 +33,8 @@ public class Magic {
         //Parte dell'interfaccia che fa costruire il mazzo etc
         setPlayers(g1, g2, nome1, nome2); //Inizializzazione dei valori fondamentali dei giocatori
         //Inizializzazione (preparazione da parte dei giocatori) dei mazzi
-        setDeck(g1, buff);
-        setDeck(g2, buff);
+        setDeck(g1, carte, buff);
+        setDeck(g2, carte, buff);
         //Inizializzazione delle mani dei giocatori: bigona farli pescare 5 carte ciascuno
         loose = false;
         turn = 1;
