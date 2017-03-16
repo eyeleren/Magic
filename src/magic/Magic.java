@@ -18,7 +18,6 @@ public class Magic {
         Giocatore g1 = new Giocatore();
         Giocatore g2 = new Giocatore();
         Board campo = new Board();
-        Stack seq = new Stack();
         GestoreFasi Gfasi = new GestoreFasi();
         Gfasi.resetPhaseList(campo);
         //Necessario inserire la creazione della lista di tutte le carte esistenti.
