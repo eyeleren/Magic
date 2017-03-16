@@ -2,9 +2,10 @@ package magic;
 
 //il giocatore contiene mazzo di carte, mano, hp e nome
 
+import java.util.Iterator;
 import magic.Cards.Card;
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class Giocatore {
     public String name;
@@ -13,6 +14,7 @@ public class Giocatore {
     public boolean looses = false;
     public LinkedList<Card> deck = new LinkedList<>();
     public LinkedList<Card> hand = new LinkedList<>();
+    Iterator x = hand.listIterator(0);
     
     public boolean getLooses(){
         return looses;
@@ -31,9 +33,20 @@ public class Giocatore {
         return deck.size();
         }
     
-    public boolean noIstant(){
-        //da implementare
-        return false;
+    //fatto
+    public boolean noInstant(){
+        
+        if("Instant".equals(hand.getFirst().getType())){
+            return false;
+        }
+        while(x.hasNext()){
+            Card f;
+            f = (Card) x.next();
+            if("Instant".equals(f.getType()) ){
+                return false;
+            }
+        }
+        return true;
     }
     
     public Card pescata(){
