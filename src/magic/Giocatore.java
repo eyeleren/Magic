@@ -53,14 +53,18 @@ public class Giocatore {
         return deck.remove(0);
     }
     
+    public Card daPescare(){
+        return deck.peek();
+    }
+    
     public void addCard(Card e){
         hand.add(e);
     }
     
-    //modificata dall'input via terminale
+    /*//modificata dall'input via terminale
     public int scartaCarta(){
         return 0;
-    }
+    }*/
     
     public int getId(){
         return id;

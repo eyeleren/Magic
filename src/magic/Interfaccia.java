@@ -51,7 +51,7 @@ public class Interfaccia {
         chosen = Integer.parseInt(buff.readLine());
         c = giocatore1.hand.remove(chosen);
         c.activate(stack);
-        empty = giocatore2.noIstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
+        empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
         while((!passes1 || !passes2) && !empty){
             if(turn == 1 && !passes1){
                 turn = 2;
@@ -65,7 +65,7 @@ public class Interfaccia {
                 else{
                     passes1 = true;
                 }
-                empty = giocatore1.noIstant();
+                empty = giocatore1.noInstant();
             }
             else if(!passes2){
                 turn = 1;
@@ -79,7 +79,7 @@ public class Interfaccia {
                 else{
                     passes2 = true;
                 }
-                empty = giocatore2.noIstant();
+                empty = giocatore2.noInstant();
             }
         }
     }
@@ -97,4 +97,12 @@ public class Interfaccia {
         }
         System.out.println("Preparazione mazzo personalizzato completata.");
     }
+    
+    
+    
+    
+    
+    
+    
+    
 }

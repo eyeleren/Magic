@@ -15,9 +15,7 @@ import magic.Giocatore;
  * @author Roberto
  */
 public interface Phase {
-<<<<<<< Updated upstream
+
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException;
-=======
-    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo);
->>>>>>> Stashed changes
+
 }
