@@ -2,6 +2,7 @@
 package magic;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import magic.Fasi.Combat;
@@ -24,7 +25,7 @@ public class GestoreFasi{
         this.g = a;
     }
     
-    public boolean phaseCalls(Giocatore g1, Giocatore g2, Board b, BufferedReader buff){
+    public boolean phaseCalls(Giocatore g1, Giocatore g2, Board b, BufferedReader buff) throws IOException{
         Phase a;
         boolean r;
         while(!fasi.isEmpty()){

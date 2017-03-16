@@ -32,6 +32,7 @@ public class Omeophaty implements Card{
         return this.description;
     }
 
+    @Override
     public void activate(Stack s) {
         Spell a = new loaderOmeophaty();
         s.addSpell(a);
