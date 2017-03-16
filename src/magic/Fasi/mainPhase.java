@@ -3,12 +3,8 @@ package magic.Fasi;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.LinkedList;
 import magic.Board;
-import magic.Cards.Card;
 import magic.Giocatore;
-import magic.Stack;
-import magic.Interfaccia;
 
 import static magic.Interfaccia.*;
 import magic.Stack;
@@ -34,14 +30,4 @@ public class mainPhase implements Phase{
         l =  stack.resolveStack();
         return l;
     }
-
-
-  public void caricaCarta(Giocatore player, int c){
-    
-    
-    }
-    
-
-
-
 }

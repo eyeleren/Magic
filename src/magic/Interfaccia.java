@@ -27,14 +27,12 @@ public class Interfaccia {
         Iterator a = c.listIterator(0);
         int i = 1;
         String temp;
-        temp = c.get(0).getName();
-        System.out.print("(" + i + ") " + temp + ", ");
         Card p;
         while(a.hasNext()){
             p = (Card) a.next();
             temp = p.getName();
-            i++;
             System.out.print("(" + i + ") " + temp + ", ");
+            i++;
         }
         System.out.println("\n");
     }

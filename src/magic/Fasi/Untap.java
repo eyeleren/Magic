@@ -19,7 +19,6 @@ public class Untap implements Phase{
     }
     
     public void detap1(){
-        b.boardp1.get(0).untap();
         while(x.hasNext()){
             Creature p;
             p = (Creature) x.next();
@@ -28,7 +27,6 @@ public class Untap implements Phase{
     }
 
     public void detap2(){
-        b.boardp2.get(0).untap();
         while(y.hasNext()){
             Creature p;
             p = (Creature) y.next();
@@ -37,6 +35,7 @@ public class Untap implements Phase{
     }
     
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
+        System.out.println(giocatore1.name + " untap phase, le tue creature sono state stappate");
         if (giocatore1.getId() == 1){
             this.detap1();
             return false;

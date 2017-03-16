@@ -4,6 +4,7 @@ package magic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.LinkedList;
 import magic.Cards.Card;
 import static magic.Interfaccia.*;
@@ -20,9 +21,8 @@ public class Magic {
         Board campo = new Board();
         GestoreFasi Gfasi = new GestoreFasi();
         Gfasi.resetPhaseList(campo);
-        //Necessario inserire la creazione della lista di tutte le carte esistenti.
         LinkedList<Card> carte = new LinkedList<>();
-        createOriginalDeck(carte);
+        createOriginalDeck(carte); //Creazione della lista di tutte le carte esistenti.
         //Avvio del gioco
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Benvenuti in Magic!!!");
@@ -34,7 +34,8 @@ public class Magic {
         //Inizializzazione (preparazione da parte dei giocatori) dei mazzi
         setDeck(g1, carte, buff);
         setDeck(g2, carte, buff);
-        //Vanno mescolate le carte
+        Collections.shuffle(g1.deck);
+        Collections.shuffle(g2.deck);
         //Inizializzazione delle mani dei giocatori: bigona farli pescare 5 carte ciascuno
         loose = false;
         turn = 1;
@@ -53,7 +54,7 @@ public class Magic {
             }
         }
         //Termine del gioco con dichiarazione vittoria sconfitta.
-        if(turn == 1){//cambiare il controllo sul campo looses del giocatore non sul turno.
+        if(g2.looses == true){
             System.out.println("Congratulazioni!!! Il giocatore " + g1.name + " ha vinto la partita!");
         }
         else{
@@ -61,5 +62,4 @@ public class Magic {
         }
         System.out.println("Fine del gioco.");
     }
-    
 }

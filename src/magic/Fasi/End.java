@@ -21,7 +21,6 @@ public class End implements Phase{
     }
     
     public void basevita1(){
-        b.boardp1.get(0).regen();
             while(x.hasNext()){
                 Creature p;
                 p = (Creature) x.next();
@@ -32,7 +31,6 @@ public class End implements Phase{
     }
       
     public void basevita2(){
-        b.boardp2.get(0).regen();
         while(y.hasNext()){
             Creature p;
             p = (Creature) y.next();
@@ -45,6 +43,7 @@ public class End implements Phase{
     
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
         this.player = giocatore1;
+        System.out.println(giocatore1.name + " end phase: la difesa delle tue creature viene ripristinata.");
         if (player.getId() == 1){
             this.basevita1();
             return false;

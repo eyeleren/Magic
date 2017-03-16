@@ -31,14 +31,10 @@ public class Giocatore {
     
     public int lungMazzo(){
         return deck.size();
-        }
+    }
     
     //fatto
     public boolean noInstant(){
-        
-        if("Instant".equals(hand.getFirst().getType())){
-            return false;
-        }
         while(x.hasNext()){
             Card f;
             f = (Card) x.next();

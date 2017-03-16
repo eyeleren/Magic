@@ -30,21 +30,17 @@ public class Draw implements Phase{
                 player.hand.remove(r);
             }
             else{
-                Card c = player.daPescare();
+                Card c = player.pescata();
                 System.out.println(player.name + " hai pescato " + c.getName());
-                player.addCard(player.pescata());
-                
-               
+                player.addCard(c);
             }
         }
     }
-    //Sistemare da qui in giù
 
-    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) {    
+    public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException {    
         this.player = giocatore1;
-        //fixa
         this.drawCard(buff);
-        return player.looses = true;
+        return player.looses = true; //Quà è palesemente sbagliato, uno non è che quando pesca anche perde.
         
     }
 }
