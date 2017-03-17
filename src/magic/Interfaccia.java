@@ -50,6 +50,7 @@ public class Interfaccia {
         System.out.println(giocatore1.name + " scegli una carta da giocare.");
         showCards(giocatore1.hand);
         chosen = Integer.parseInt(buff.readLine());
+        
         while(chosen < 0 || chosen > giocatore1.hand.size() ){
             System.out.println("Non hai scelto una carta valida, prova di nuovo.");
             chosen = Integer.parseInt(buff.readLine());
@@ -70,10 +71,18 @@ public class Interfaccia {
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
                     System.out.println("altrimenti scegli un'istantanea da giocare.");
-                    showCards(giocatore1.hand);
+                    LinkedList inst1 = giocatore1.showInstant();
+                    showCards(inst1);
                     chosen = Integer.parseInt(buff.readLine());
+                    
+                    while(chosen  > inst1.size() ){
+                    System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                    chosen = Integer.parseInt(buff.readLine());
+                    }
+                    
                     if(chosen-1 >= 0){
-                        c = giocatore1.hand.remove(chosen-1);
+                        int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
+                        c = giocatore1.hand.remove(sc);
                         c.activate(stack);
                     }
                     else{
@@ -91,10 +100,18 @@ public class Interfaccia {
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
                     System.out.println("altrimenti scegli un'istantanea da giocare.");
-                    showCards(giocatore2.hand);
+                    LinkedList inst2 = giocatore1.showInstant();
+                    showCards(inst2);
                     chosen = Integer.parseInt(buff.readLine());
+                    
+                    while(chosen > inst2.size() ){
+                    System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                    chosen = Integer.parseInt(buff.readLine());
+                    }
+                    
                     if(chosen-1 >= 0){
-                        c = giocatore2.hand.remove(chosen-1);
+                        int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
+                        c = giocatore2.hand.remove(sc);
                         c.activate(stack);
                     }
                     else{
@@ -127,7 +144,7 @@ public class Interfaccia {
             
             
         }
-        System.out.println("Preparazione mazzo personalizzato completata.");
+        System.out.println("Preparazione mazzo personalizzato completata. \n");
     }
     
     public static void newHand(Giocatore g){

@@ -27,7 +27,14 @@ public class Magic {
         createOriginalDeck(carte); //Creazione della lista di tutte le carte esistenti.
         //Avvio del gioco
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Benvenuti in Magic!!!");
+        System.out.println("  __  __             _      \n" +
+" |  \\/  |           (_)     \n" +
+" | \\  / | __ _  __ _ _  ___ \n" +
+" | |\\/| |/ _` |/ _` | |/ __|\n" +
+" | |  | | (_| | (_| | | (__ \n" +
+" |_|  |_|\\__,_|\\__, |_|\\___|\n" +
+"                __/ |       \n" +
+"               |___/      ");
         System.out.println("Prego inserire i nomi dei giocatori:");
         nome1 = buff.readLine();
         nome2 = buff.readLine();
@@ -59,10 +66,20 @@ public class Magic {
         }
         //Termine del gioco con dichiarazione vittoria sconfitta.
         if(g2.looses == true){
-            System.out.println("Congratulazioni!!! Il giocatore " + g1.name + " ha vinto la partita!");
+            System.out.println("__  __                        _       __\n" +
+"\\ \\/ /___  __  __   _      __(_)___  / /\n" +
+" \\  / __ \\/ / / /  | | /| / / / __ \\/ / \n" +
+" / / /_/ / /_/ /   | |/ |/ / / / / /_/  \n" +
+"/_/\\____/\\__,_/    |__/|__/_/_/ /_(_)   \n" +
+"                                        "+"\nIl giocatore " + g1.name + " ha vinto la partita!");
         }
         else{
-            System.out.println("Congratulazioni!!! Il giocatore " + g2.name + " ha vinto la partita!");
+            System.out.println("__  __                        _       __\n" +
+"\\ \\/ /___  __  __   _      __(_)___  / /\n" +
+" \\  / __ \\/ / / /  | | /| / / / __ \\/ / \n" +
+" / / /_/ / /_/ /   | |/ |/ / / / / /_/  \n" +
+"/_/\\____/\\__,_/    |__/|__/_/_/ /_(_)   \n" +
+"                                        "+ "\nIl giocatore " + g2.name + " ha vinto la partita!");
         }
         System.out.println("Fine del gioco.");
     }
