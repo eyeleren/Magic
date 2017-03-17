@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import magic.Cards.Card;
 import static magic.Interfaccia.*;
 
+/*+++CLASSE MAGIC+++ contiene il main e la struttura di gioco*/
+
 public class Magic {
 
     public static void main(String[] args) throws IOException {

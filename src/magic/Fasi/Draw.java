@@ -7,13 +7,16 @@ import magic.Cards.Card;
 import magic.Giocatore;
 import static magic.Interfaccia.*;
 
+    /*+++DRAW PHASE+++ la fase si occupa di pescare una carta per il giocatore, se il giocatore ha terminato le carte nel mazzo, 
+    la partita termina e il giocatore perde, se ha 7 carte in mano si pesca una carta e si fa sciegliere al giocatore quale scartare,
+    altrimenti aggiunge semplicemente una carta alla mano.*/
 
 public class Draw implements Phase{
     public Giocatore player;
     BufferedReader buff;
     
     
-    
+
     
     public void drawCard(BufferedReader buff)throws IOException{
         if(player.lungMazzo() == 0){
@@ -40,7 +43,7 @@ public class Draw implements Phase{
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException {    
         this.player = giocatore1;
         this.drawCard(buff);
-        return player.looses = true; //Quà è palesemente sbagliato, uno non è che quando pesca anche perde.
+        return player.looses = false; //Quà è palesemente sbagliato, uno non è che quando pesca anche perde.
         
     }
 }

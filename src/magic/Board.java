@@ -5,7 +5,8 @@ import java.util.LinkedList;
 import java.util.*;
 import magic.Spells.Permanent;
 
-//contiene creature e permanenti suddivisi per i due giocatori e l'occhio che vede tutto (trigger)
+/*+++BOARD+++ contiene creature e permanenti suddivisi per i due giocatori e l'occhio che vede tutto (trigger)*/
+
 public class Board {
     public List<Creature> boardp1 = new LinkedList<>();
     public List<Creature> boardp2 = new LinkedList<>();

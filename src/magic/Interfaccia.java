@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import magic.Cards.Card;
 import magic.Cards.Omeophaty;
 
+
+/*+++CLASSE INTERFACCIA+++ gestisce varie operazioni legate a standard input/output*/
+
 public class Interfaccia {
     public static void setPlayers(Giocatore g1, Giocatore g2, String name1, String name2){
         g1.name = name1;
@@ -47,17 +50,19 @@ public class Interfaccia {
         System.out.println(giocatore1.name + " scegli una carta da giocare");
         showCards(giocatore1.hand);
         chosen = Integer.parseInt(buff.readLine());
-        c = giocatore1.hand.remove(chosen);
+        c = giocatore1.hand.remove(chosen -1);
         c.activate(stack);
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
         while((!passes1 || !passes2) && !empty){
             if(turn == 1 && !passes1){
                 turn = 2;
                 System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo");
-                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata
+                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
+                    System.out.println(giocatore2.name + " scegli un'istantanea da giocare");
+                    showCards(giocatore2.showInstant());
                     chosen = Integer.parseInt(buff.readLine());
-                    c = giocatore2.hand.remove(chosen);
+                    c = giocatore2.hand.remove(chosen-1);
                     c.activate(stack);
                 }
                 else{
@@ -68,10 +73,12 @@ public class Interfaccia {
             else if(!passes2){
                 turn = 1;
                 System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo");
-                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata
+                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
+                    System.out.println(giocatore1.name + " scegli un'istantanea da giocare");
+                    showCards(giocatore1.showInstant());
                     chosen = Integer.parseInt(buff.readLine());
-                    c = giocatore1.hand.remove(chosen);
+                    c = giocatore1.hand.remove(chosen-1);
                     c.activate(stack);
                 }
                 else{
@@ -91,7 +98,13 @@ public class Interfaccia {
             System.out.println("Ti restano " + i + "carte da scegliere");
             System.out.println("Scegli una carta");
             choosen = Integer.parseInt(buff.readLine());
-            //In base al numero scelto bisogna aggiungere al mazzo di g la carta di indice choosen
+            while(choosen > carte.size() || choosen < 1){
+                System.out.println("Scegli una carta, stavolta una che esiste, grazie");
+                choosen = Integer.parseInt(buff.readLine());    
+            }
+            g.deckInsert((Card) carte.get(choosen-1));
+            
+            
         }
         System.out.println("Preparazione mazzo personalizzato completata.");
     }

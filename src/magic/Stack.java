@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/*+++STACK+++ la classe contiene una lista ordinata di spell utile alla risoluzione degli effetti e i suoi metodi*/
 
-//lista ordinata di spell per la risoluzione degli effetti
 public class Stack {
     private LinkedList<Spell> s = new LinkedList<>();
     

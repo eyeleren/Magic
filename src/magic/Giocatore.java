@@ -1,10 +1,12 @@
 package magic;
 
-//il giocatore contiene mazzo di carte, mano, hp e nome
+/*+++GIOCATORE+++ classe che si occupa di descrivere lo stato del giocatore(vita, mano, mazzo), che inoltre contiene anche operazioni utili 
+alla gestione della mano e del mazzo.*/
 
 import java.util.Iterator;
 import magic.Cards.Card;
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class Giocatore {
@@ -49,18 +51,11 @@ public class Giocatore {
         return deck.remove(0);
     }
     
-    public Card daPescare(){
-        return deck.peek();
-    }
     
     public void addCard(Card e){
         hand.add(e);
     }
     
-    /*//modificata dall'input via terminale
-    public int scartaCarta(){
-        return 0;
-    }*/
     
     public int getId(){
         return id;
@@ -69,4 +64,21 @@ public class Giocatore {
     public int qtVita() {
         return health;
     }
+    
+    public LinkedList<Card> showInstant(){
+        LinkedList<Card> l = null;
+        while(x.hasNext()){
+            Card f;
+            f = (Card) x.next();
+            if("Instant".equals(f.getType()) ){
+                l.add(f);
+            }
+        }
+        return l;
+    }
+    
+    public void deckInsert(Card c){
+        this.deck.add(c);
+    }
+    
 }

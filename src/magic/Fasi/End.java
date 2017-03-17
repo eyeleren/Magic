@@ -6,6 +6,8 @@ import java.util.Iterator;
 import magic.Board;
 import magic.Giocatore;
 
+/*+++END PHASE+++ durante questa fase le creature del giocatore corrente vengono ripristinate alla salute massima, poi finisce il turno del giocatore*/
+
 public class End implements Phase{
     public Giocatore player;
     public Creature creature;

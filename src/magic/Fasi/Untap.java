@@ -8,6 +8,8 @@ import magic.Giocatore;
 
 import java.util.*;
 
+/*+++UNTAP PHASE+++ le creature dal lato della board del giocatore corrente vengono stappate*/
+
 public class Untap implements Phase{
     public Board b;
     Iterator x;

@@ -9,7 +9,12 @@ import magic.Giocatore;
 import static magic.Interfaccia.*;
 import magic.Stack;
 
-//Tutta da fare
+/*+++MAIN PHASE+++ durante la main phase il giocatore corrente sceglie una carta da giocare, che viene caricata nello stack per la risoluzione, 
+successivamente viene data all'altro giocatore la possiblità di rispondere con un'istantanea, a sua volta anche il giocatore corrente potrà rispondere, 
+sempre con un istantanea, la phase termina con la risoluzione delle spell nello stack, quando entrambi i giocatori passano la possibilità di rispondere.
+Alcuni metodi di questa classe appartengono alla classe interfaccia, dato che c'è bisogno di gestire operazioni di i/o riguardanti la scelta delle carte.*/
+
+
 public class mainPhase implements Phase{
     public Stack stack;
     public Giocatore player1;

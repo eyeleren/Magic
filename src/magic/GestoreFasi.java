@@ -12,7 +12,7 @@ import magic.Fasi.Phase;
 import magic.Fasi.Untap;
 import magic.Fasi.mainPhase;
 
-
+/*+++GESTORE DELLE FASI+++ Classe che contine i meccanismi di gestione delle fasi di gioco*/
 
 public class GestoreFasi{
     public List<Phase> fasi = new LinkedList<>();
