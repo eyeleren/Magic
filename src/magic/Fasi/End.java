@@ -45,7 +45,7 @@ public class End implements Phase{
     
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
         this.player = giocatore1;
-        System.out.println(giocatore1.name + " end phase: la difesa delle tue creature viene ripristinata.");
+        System.out.println(giocatore1.name + " inizia la tua End Phase: la difesa delle tue creature viene ripristinata.");
         if (player.getId() == 1){
             this.basevita1();
             return false;

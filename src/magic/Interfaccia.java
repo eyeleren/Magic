@@ -47,7 +47,7 @@ public class Interfaccia {
         boolean passes2 = false;
         boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
-        System.out.println(giocatore1.name + " scegli una carta da giocare");
+        System.out.println(giocatore1.name + " scegli una carta da giocare.");
         showCards(giocatore1.hand);
         chosen = -1;
         while(chosen < 0){
@@ -69,10 +69,10 @@ public class Interfaccia {
                 turn--;
             }
             if(turn == 1 && !passes1){
-                System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo");
+                System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo.");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
-                    System.out.println(giocatore1.name + " scegli un'istantanea da giocare");
+                    System.out.println(giocatore1.name + " scegli un'istantanea da giocare.");
                     showCards(giocatore1.hand);
                     chosen = Integer.parseInt(buff.readLine());
                     if(chosen-1 >= 0){
@@ -89,10 +89,10 @@ public class Interfaccia {
                 empty = giocatore1.noInstant();
             }
             else if(!passes2){
-                System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo");
+                System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo.");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
-                    System.out.println(giocatore2.name + " scegli un'istantanea da giocare");
+                    System.out.println(giocatore2.name + " scegli un'istantanea da giocare.");
                     showCards(giocatore2.hand);
                     chosen = Integer.parseInt(buff.readLine());
                     if(chosen-1 >= 0){
@@ -113,15 +113,15 @@ public class Interfaccia {
     
     public static void setDeck(Giocatore g, LinkedList carte, BufferedReader buff) throws IOException{
         int choosen;
-        System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name);
+        System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name );
         System.out.println("Queste sono le carte disponibili:");
         for(int i = 6; i > 0; i--){
             showCards(carte);
-            System.out.println("Ti restano " + i + "carte da scegliere");
-            System.out.println("Scegli una carta");
+            System.out.println("Ti restano " + i + "carte da scegliere.");
+            System.out.println("Scegli una carta:");
             choosen = Integer.parseInt(buff.readLine());
             while(choosen > carte.size() || choosen < 1){
-                System.out.println("Scegli una carta, stavolta una che esiste, grazie");
+                System.out.println("Scegli una carta, stavolta una che esiste, grazie.");
                 choosen = Integer.parseInt(buff.readLine());    
             }
             g.deckInsert((Card) carte.get(choosen-1));

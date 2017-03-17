@@ -20,7 +20,7 @@ public class Draw implements Phase{
     
     public boolean drawCard(BufferedReader buff)throws IOException{
         if(player.lungMazzo() == 0){
-            System.out.println(player.name + " hai esaurito le carte del mazzo");
+            System.out.println(player.name + " hai esaurito le carte del mazzo!");
             player.setLooses(true);
             return true;
         }
@@ -35,7 +35,9 @@ public class Draw implements Phase{
             }
             else{
                 Card c = player.pescata();
-                System.out.println(player.name + " hai pescato " + c.getName());
+                System.out.println(player.name + ", inizia la tua Draw Phase.");
+                System.out.println(player.name + ", hai pescato " + c.getName() + ".");
+                System.out.println("Ti rimangono " + player.lungMazzo() + " carte nel mazzo.");
                 player.addCard(c);
             }
         }

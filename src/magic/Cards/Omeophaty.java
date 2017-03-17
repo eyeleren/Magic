@@ -35,6 +35,8 @@ public class Omeophaty implements Card{
     @Override
     public void activate(Stack s) {
         Spell a = new loaderOmeophaty();
+        //if(a != null)
+        //  System.out.println("a esiste");
         s.addSpell(a);
     }
 

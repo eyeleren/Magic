@@ -45,13 +45,13 @@ public class Magic {
         turn = 1;
         while(!loose){
             if(turn == 1){
-                System.out.println("Inizio del turno di " + g1.name);
+                System.out.println("Inizio del turno di " + g1.name + ".");
                 turn = 2;
                 loose = Gfasi.phaseCalls(g1, g2, campo, buff);
                 Gfasi.resetPhaseList(campo);
             }
             else{
-                System.out.println("Inizio del turno di " + g2.name);
+                System.out.println("Inizio del turno di " + g2.name + ".");
                 turn = 1;
                 loose = Gfasi.phaseCalls(g2, g1, campo, buff);
                 Gfasi.resetPhaseList(campo);
