@@ -9,7 +9,5 @@ public interface Card {
     public String getType();
     public String getDescription();
     public void activate(Stack s);
-    public void remove();
-    
     
 }

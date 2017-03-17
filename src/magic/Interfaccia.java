@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import magic.Cards.Card;
+import magic.Cards.Magikarp;
 import magic.Cards.Omeophaty;
 
 
@@ -23,7 +24,9 @@ public class Interfaccia {
     
     public static void createOriginalDeck(LinkedList l){
         Card c1 = new Omeophaty();
+        Card c2 = new Magikarp();
         l.add(c1);
+        l.add(c2);
     }
     
     public static void showCards(LinkedList<Card> c){
@@ -125,20 +128,23 @@ public class Interfaccia {
             }
         }
     }
-
     
     public static void setDeck(Giocatore g, LinkedList carte, BufferedReader buff) throws IOException{
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name );
         System.out.println("Queste sono le carte disponibili:");
-        for(int i = 6; i > 0; i--){
+        for(int i = 10; i > 0; i--){
+            choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");
             System.out.println("Scegli una carta:");
-            choosen = Integer.parseInt(buff.readLine());
             while(choosen > carte.size() || choosen < 1){
-                System.out.println("Scegli una carta, stavolta una che esiste, grazie.");
-                choosen = Integer.parseInt(buff.readLine());    
+                try{
+                    choosen = Integer.parseInt(buff.readLine());
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Scegli una carta, stavolta una che esiste, grazie.");
+                }
             }
             g.deckInsert((Card) carte.get(choosen-1));
             
@@ -151,10 +157,4 @@ public class Interfaccia {
         for(int i=0; i<5; i++)
             g.addCard(g.pescata());
     }
-    
-    
-    
-    
-    
-    
 }

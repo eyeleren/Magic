@@ -2,19 +2,20 @@
 package magic.Cards;
 
 import magic.Spells.Spell;
+import magic.Spells.loaderMagikarp;
 import magic.Spells.loaderOmeophaty;
 import magic.Stack;
 
-public class Omeophaty implements Card{
+public class Magikarp implements Card{
 
     String name;
     String type;
     String description;
 
-    public Omeophaty() {
-        this.name = "Omeophaty";
-        this.type = "Instant";
-        this.description = "This card does nothing: Magikarp uses Splash, but nothing happens";
+    public Magikarp() {
+        this.name = "Magikarp";
+        this.type = "Spell";
+        this.description = "This card does nothing: Splash...";
     }
     
     @Override
@@ -34,7 +35,7 @@ public class Omeophaty implements Card{
 
     @Override
     public void activate(Stack s) {
-        Spell a = new loaderOmeophaty();
+        Spell a = new loaderMagikarp();
         s.addSpell(a);
     }
     

@@ -7,6 +7,7 @@ import magic.Board;
 import magic.Giocatore;
 
 import static magic.Interfaccia.*;
+import magic.Sauron;
 import magic.Stack;
 
 /*+++MAIN PHASE+++ durante la main phase il giocatore corrente sceglie una carta da giocare, che viene caricata nello stack per la risoluzione, 
@@ -31,6 +32,7 @@ public class mainPhase implements Phase{
         chargeStack(giocatore1, giocatore2, campo, buff, stack);
         System.out.println("Fine del caricamento dello stack, ora verrà risolto.");
         l = stack.resolveStack();
+        campo.occhio.mainTrigger(Sauron.MAIN);
         return l;
     }
 }

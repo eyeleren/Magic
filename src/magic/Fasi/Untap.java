@@ -7,6 +7,7 @@ import magic.Board;
 import magic.Giocatore;
 
 import java.util.*;
+import magic.Sauron;
 
 /*+++UNTAP PHASE+++ le creature dal lato della board del giocatore corrente vengono stappate*/
 
@@ -40,10 +41,12 @@ public class Untap implements Phase{
         System.out.println(giocatore1.name + ", svolgimento Untap Phase, le tue creature sono state stappate.");
         if (giocatore1.getId() == 1){
             this.detap1();
+            campo.occhio.untapTrigger(Sauron.UNTAP);
             return false;
         }
         else{
             this.detap2();
+            campo.occhio.untapTrigger(Sauron.UNTAP);
             return false;
         }
     }

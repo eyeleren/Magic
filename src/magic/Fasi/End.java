@@ -5,6 +5,7 @@ import magic.Creatures.Creature;
 import java.util.Iterator;
 import magic.Board;
 import magic.Giocatore;
+import magic.Sauron;
 
 /*+++END PHASE+++ durante questa fase le creature del giocatore corrente vengono ripristinate alla salute massima, poi finisce il turno del giocatore*/
 
@@ -27,8 +28,6 @@ public class End implements Phase{
                 Creature p;
                 p = (Creature) x.next();
                 p.regen();
-            //p.setAttack(p.getOriginAttack()); DA METTERE NEL CODICE DEL BUFF/DEBUFF
-            //p.setDefense(p.getOriginDefense()); DA METTERE NEL CODICE DEL BUFF/DEBUFF
             }      
     }
       
@@ -37,10 +36,7 @@ public class End implements Phase{
             Creature p;
             p = (Creature) y.next();
             p.regen();
-            //p.setAttack(p.getOriginAttack()); DA METTERE NEL CODICE DEL BUFF/DEBUFF
-            //p.setDefense(p.getOriginDefense()); DA METTERE NEL CODICE DEL BUFF/DEBUFF
         }
-        
     }
     
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
@@ -48,10 +44,12 @@ public class End implements Phase{
         System.out.println(giocatore1.name + " inizia la tua End Phase: la difesa delle tue creature viene ripristinata. \n \n");
         if (player.getId() == 1){
             this.basevita1();
+            campo.occhio.mainTrigger(Sauron.END);
             return false;
         }
         else{
             this.basevita2();
+            campo.occhio.mainTrigger(Sauron.END);
             return false;
         }
     }        
