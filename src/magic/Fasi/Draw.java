@@ -18,10 +18,11 @@ public class Draw implements Phase{
     
 
     
-    public void drawCard(BufferedReader buff)throws IOException{
+    public boolean drawCard(BufferedReader buff)throws IOException{
         if(player.lungMazzo() == 0){
             System.out.println(player.name + " hai esaurito le carte del mazzo");
             player.setLooses(true);
+            return true;
         }
         else{
             if(player.lungMano() == 7) {
@@ -38,12 +39,11 @@ public class Draw implements Phase{
                 player.addCard(c);
             }
         }
+        return false;
     }
 
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException {    
         this.player = giocatore1;
-        this.drawCard(buff);
-        return player.looses = false; //Quà è palesemente sbagliato, uno non è che quando pesca anche perde.
-        
+        return this.drawCard(buff);
     }
 }

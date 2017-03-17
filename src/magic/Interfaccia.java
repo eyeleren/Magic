@@ -46,24 +46,42 @@ public class Interfaccia {
         boolean passes1 = false;
         boolean passes2 = false;
         boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
-        int turn = 2;
+        int turn = 1;
         System.out.println(giocatore1.name + " scegli una carta da giocare");
         showCards(giocatore1.hand);
-        chosen = Integer.parseInt(buff.readLine());
-        c = giocatore1.hand.remove(chosen -1);
-        c.activate(stack);
+        chosen = -1;
+        while(chosen < 0){
+            chosen = Integer.parseInt(buff.readLine());
+            if(chosen-1 >= 0){
+                c = giocatore1.hand.remove(chosen -1);
+                c.activate(stack);
+            }
+            else{
+                System.out.println("Non ha scelto una carta valida.");
+            }
+        }
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
-        while((!passes1 || !passes2) && !empty){
+        while((!passes1 && !passes2) && !empty){
+            if(turn==1){
+                turn++;
+            }
+            else{
+                turn--;
+            }
             if(turn == 1 && !passes1){
-                turn = 2;
-                System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo");
+                System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
-                    System.out.println(giocatore2.name + " scegli un'istantanea da giocare");
-                    showCards(giocatore2.showInstant());
+                    System.out.println(giocatore1.name + " scegli un'istantanea da giocare");
+                    showCards(giocatore1.hand);
                     chosen = Integer.parseInt(buff.readLine());
-                    c = giocatore2.hand.remove(chosen-1);
-                    c.activate(stack);
+                    if(chosen-1 >= 0){
+                        c = giocatore1.hand.remove(chosen-1);
+                        c.activate(stack);
+                    }
+                    else{
+                        passes1 = true;
+                    }
                 }
                 else{
                     passes1 = true;
@@ -71,15 +89,19 @@ public class Interfaccia {
                 empty = giocatore1.noInstant();
             }
             else if(!passes2){
-                turn = 1;
-                System.out.println(giocatore1.name + " vuoi passare? Se si allora numero negativo");
+                System.out.println(giocatore2.name + " vuoi passare? Se si allora numero negativo");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
-                    System.out.println(giocatore1.name + " scegli un'istantanea da giocare");
-                    showCards(giocatore1.showInstant());
+                    System.out.println(giocatore2.name + " scegli un'istantanea da giocare");
+                    showCards(giocatore2.hand);
                     chosen = Integer.parseInt(buff.readLine());
-                    c = giocatore1.hand.remove(chosen-1);
-                    c.activate(stack);
+                    if(chosen-1 >= 0){
+                        c = giocatore2.hand.remove(chosen-1);
+                        c.activate(stack);
+                    }
+                    else{
+                        passes2 = true;
+                    }
                 }
                 else{
                     passes2 = true;
@@ -93,7 +115,7 @@ public class Interfaccia {
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name);
         System.out.println("Queste sono le carte disponibili:");
-        for(int i = 20; i > 0; i--){
+        for(int i = 6; i > 0; i--){
             showCards(carte);
             System.out.println("Ti restano " + i + "carte da scegliere");
             System.out.println("Scegli una carta");
@@ -109,7 +131,10 @@ public class Interfaccia {
         System.out.println("Preparazione mazzo personalizzato completata.");
     }
     
-    
+    public static void newHand(Giocatore g){
+        for(int i=0; i<5; i++)
+            g.addCard(g.pescata());
+    }
     
     
     

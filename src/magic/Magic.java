@@ -39,6 +39,8 @@ public class Magic {
         Collections.shuffle(g1.deck);
         Collections.shuffle(g2.deck);
         //Inizializzazione delle mani dei giocatori: bigona farli pescare 5 carte ciascuno
+        newHand(g1);
+        newHand(g2);
         loose = false;
         turn = 1;
         while(!loose){

@@ -17,12 +17,10 @@ Alcuni metodi di questa classe appartengono alla classe interfaccia, dato che c'
 
 public class mainPhase implements Phase{
     public Stack stack;
-    public Giocatore player1;
-    public Giocatore player2;
     public boolean passes1 = false;
     public boolean passes2 = false;
     
-    public void mainPhase(){
+    public mainPhase(){
         this.stack = new Stack();
     }
     
@@ -32,7 +30,7 @@ public class mainPhase implements Phase{
         System.out.println(giocatore1.name + " la tua main phase è iniziata");
         chargeStack(giocatore1, giocatore2, campo, buff, stack);
         System.out.println("Fine del caricamento dello stack, ora verrà risolto.");
-        l =  stack.resolveStack();
+        l = stack.resolveStack();
         return l;
     }
 }

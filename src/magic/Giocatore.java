@@ -16,7 +16,6 @@ public class Giocatore {
     public boolean looses = false;
     public LinkedList<Card> deck = new LinkedList<>();
     public LinkedList<Card> hand = new LinkedList<>();
-    Iterator x = hand.listIterator(0);
     
     public boolean getLooses(){
         return looses;
@@ -35,10 +34,10 @@ public class Giocatore {
         return deck.size();
     }
     
-    //fatto
     public boolean noInstant(){
+        Iterator x = hand.listIterator(0);
+        Card f;
         while(x.hasNext()){
-            Card f;
             f = (Card) x.next();
             if("Instant".equals(f.getType()) ){
                 return false;
@@ -66,7 +65,8 @@ public class Giocatore {
     }
     
     public LinkedList<Card> showInstant(){
-        LinkedList<Card> l = null;
+        Iterator x = hand.listIterator(0);
+        LinkedList<Card> l = new LinkedList<>();
         while(x.hasNext()){
             Card f;
             f = (Card) x.next();
