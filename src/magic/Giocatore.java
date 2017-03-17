@@ -6,7 +6,6 @@ alla gestione della mano e del mazzo.*/
 import java.util.Iterator;
 import magic.Cards.Card;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class Giocatore {
