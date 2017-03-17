@@ -49,17 +49,13 @@ public class Interfaccia {
         int turn = 1;
         System.out.println(giocatore1.name + " scegli una carta da giocare.");
         showCards(giocatore1.hand);
-        chosen = -1;
-        while(chosen < 0 ){
+        chosen = Integer.parseInt(buff.readLine());
+        while(chosen < 0 || chosen > giocatore1.hand.size() ){
+            System.out.println("Non hai scelto una carta valida, prova di nuovo.");
             chosen = Integer.parseInt(buff.readLine());
-            if(chosen-1 >= 0){
-                c = giocatore1.hand.remove(chosen -1);
-                c.activate(stack);
-            }
-            else{
-                System.out.println("Non ha scelto una carta valida.");
-            }
         }
+        c = giocatore1.hand.remove(chosen -1);
+        c.activate(stack);
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
         while((!passes1 && !passes2) && !empty){
             if(turn==1){
@@ -69,7 +65,8 @@ public class Interfaccia {
                 turn--;
             }
             if(turn == 1 && !passes1){
-                System.out.println(giocatore1.name + " inserisci un numero negativo per passare, ");
+                System.out.println(giocatore1.name + " vuoi rispondere con un'istantanea? ");
+                System.out.println("Inserisci un numero negativo per passare, ");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
                     System.out.println("altrimenti scegli un'istantanea da giocare.");
@@ -89,6 +86,7 @@ public class Interfaccia {
                 empty = giocatore1.noInstant();
             }
             else if(!passes2){
+                System.out.println(giocatore2.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println(giocatore2.name + " inserisci un numero negativo per passare, ");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
@@ -110,6 +108,7 @@ public class Interfaccia {
             }
         }
     }
+
     
     public static void setDeck(Giocatore g, LinkedList carte, BufferedReader buff) throws IOException{
         int choosen;
