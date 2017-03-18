@@ -14,16 +14,13 @@ public class End implements Phase{
     public Creature creature;
     public Board b;
     
-    Iterator x;
-    Iterator y;
     
     public End(Board b){
         this.b = b;
-        x = b.boardp1.listIterator(0);
-        y = b.boardp2.listIterator(0);
     }
     
     public void basevita1(){
+        Iterator x = b.boardp1.listIterator(0);
             while(x.hasNext()){
                 Creature p;
                 p = (Creature) x.next();
@@ -32,6 +29,7 @@ public class End implements Phase{
     }
       
     public void basevita2(){
+        Iterator y = b.boardp2.listIterator(0);
         while(y.hasNext()){
             Creature p;
             p = (Creature) y.next();

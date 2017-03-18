@@ -6,7 +6,7 @@ import magic.Stack;
 
 public interface Creature {
     public String getName();
-    public void getDescription();
+    public String getDescription();
     
     public int getAttack();
     public void setAttack(int a);

@@ -9,36 +9,17 @@ import magic.Spells.Spell;
 
 public class Board {
     public int turn;
-    public List<Creature> boardp1 = new LinkedList<>();
-    public List<Creature> boardp2 = new LinkedList<>();
-    public List<Spell> perma1 = new LinkedList<>();
-    public List<Spell> perma2 = new LinkedList<>();
-    public Sauron occhio = new Sauron();
+    public LinkedList<Creature> boardp1;
+    public LinkedList<Creature> boardp2;
+    public LinkedList<Spell> perma1;
+    public LinkedList<Spell> perma2;
+    public Sauron occhio;
     
-    
-    
-    public LinkedList<Creature> effect1(){
-        LinkedList<Creature> res = null;
-        Iterator x = boardp1.listIterator(0);
-        while(x.hasNext()){
-            Creature cr = (Creature) x.next();
-            if(cr.hasEffect() && cr.isTapped()){
-                res.add(cr);
-            }
-        }
-        return res;
+    public Board(){
+        boardp1 = new LinkedList<>();
+        boardp2 = new LinkedList<>();
+        perma1 = new LinkedList<>();
+        perma2 = new LinkedList<>();
+        occhio = new Sauron();
     }
-    
-     public LinkedList<Creature> effect2(){
-        LinkedList<Creature> res = null;
-        Iterator x = boardp2.listIterator(0);
-        while(x.hasNext()){
-            Creature cr = (Creature) x.next();
-            if(cr.hasEffect() && cr.isTapped()){
-                res.add(cr);
-            }
-        }
-        return res;
-    }
-    
 }

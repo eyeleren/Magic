@@ -6,6 +6,7 @@ alla gestione della mano e del mazzo.*/
 import java.util.Iterator;
 import magic.Cards.Card;
 import java.util.LinkedList;
+import magic.Creatures.Creature;
 
 
 public class Giocatore {
@@ -15,6 +16,7 @@ public class Giocatore {
     public boolean looses = false;
     public LinkedList<Card> deck = new LinkedList<>();
     public LinkedList<Card> hand = new LinkedList<>();
+    public LinkedList<Creature> board;
     
     public boolean getLooses(){
         return looses;
@@ -74,6 +76,18 @@ public class Giocatore {
             }
         }
         return l;
+    }
+    
+    public LinkedList<Creature> effect(){
+        LinkedList<Creature> res = new LinkedList<>();
+        Iterator x = this.board.listIterator(0);
+        while(x.hasNext()){
+            Creature cr = (Creature) x.next();
+            if(cr.hasEffect() && cr.isTapped()){
+                res.add(cr);
+            }
+        }
+        return res;
     }
     
     public void deckInsert(Card c){

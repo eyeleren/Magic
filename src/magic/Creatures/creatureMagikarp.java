@@ -13,74 +13,91 @@ import magic.Stack;
  */
 public class creatureMagikarp implements Creature{
 
+    private final int originAttack;
+    private final int originDefense;
+    private int attack;
+    private int defense;
+    private boolean tapped;
+    public int damage;
+    
+    
+    public creatureMagikarp(){
+        originAttack = 0;
+        originDefense = 0;
+        attack = 0;
+        defense = 0;
+        tapped = true;
+    }
+    
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Magikarp";
     }
 
     @Override
-    public void getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getDescription() {
+        return "This card does nothing: Splash...";
     }
 
     @Override
     public int getAttack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return attack;
     }
 
     @Override
     public void setAttack(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        attack = a;
     }
 
     @Override
     public int getDefense() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return defense;
     }
 
     @Override
     public void setDefense(int b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        defense = b;
     }
 
     @Override
     public int getOriginAttack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return originAttack;
     }
 
     @Override
     public int getOriginDefense() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return originDefense;
     }
 
     @Override
     public void regen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        defense = originDefense;
+        damage = 0;
     }
 
     @Override
     public void tap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tapped = true;
     }
 
     @Override
     public void untap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tapped = false;
     }
 
     @Override
     public boolean hasEffect() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean isTapped() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
     public void effect(Stack s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Non succede niente");
     }
     
 }

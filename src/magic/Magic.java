@@ -38,7 +38,7 @@ public class Magic {
         nome1 = buff.readLine();
         nome2 = buff.readLine();
         //Parte dell'interfaccia che fa costruire il mazzo etc
-        setPlayers(g1, g2, nome1, nome2); //Inizializzazione dei valori fondamentali dei giocatori
+        setPlayers(g1, g2, nome1, nome2, campo); //Inizializzazione dei valori fondamentali dei giocatori
         //Inizializzazione (preparazione da parte dei giocatori) dei mazzi
         setDeck(g1, carte, buff);
         setDeck(g2, carte, buff);

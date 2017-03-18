@@ -14,13 +14,15 @@ import magic.Creatures.Creature;
 /*+++CLASSE INTERFACCIA+++ gestisce varie operazioni legate a standard input/output*/
 
 public class Interfaccia {
-    public static void setPlayers(Giocatore g1, Giocatore g2, String name1, String name2){
+    public static void setPlayers(Giocatore g1, Giocatore g2, String name1, String name2, Board b){
         g1.name = name1;
         g2.name = name2;
         g1.health = 10;
         g2.health = 10;
         g1.id = 1;
         g2.id = 2;
+        g1.board = b.boardp1;
+        g2.board = b.boardp2;
     }
     
     public static void createOriginalDeck(LinkedList l){
@@ -46,7 +48,6 @@ public class Interfaccia {
     
     public static int showInstants(LinkedList<Card> c, LinkedList<Creature> c2){
         Iterator a = c.listIterator(0);
-        Iterator b = c2.listIterator(0);
         int i = 1;
         int res;
         String temp;
@@ -59,11 +60,14 @@ public class Interfaccia {
             i++;
         }
         res = i;
-        while(b.hasNext()){
-            p2 = (Creature) b.next();
-            temp = p2.getName();
-            System.out.print("(" + i + ") effetto di " + temp + ", ");
-            i++;
+        if(!c2.isEmpty()){
+            Iterator b = c2.listIterator(0);
+            while(b.hasNext()){
+                p2 = (Creature) b.next();
+                temp = p2.getName();
+                System.out.print("(" + i + ") effetto di " + temp + ", ");
+                i++;
+            }
         }
         System.out.println("\n");
         return res;
@@ -81,15 +85,14 @@ public class Interfaccia {
         System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
         LinkedList<Creature> creatures1 = new LinkedList<>();
         LinkedList<Creature> creatures2 = new LinkedList<>();
-        if(giocatore1.getId() == 1){
-            creatures1 = campo.effect1();
-            creatures2 = campo.effect2();
+        creatures1 = giocatore1.effect();
+        creatures2 = giocatore2.effect();
+        if(giocatore1.board.isEmpty()){
+            discriminante1 = giocatore1.lungMano();
+            showCards(giocatore1.hand);
         }
-        else{
-            creatures2 = campo.effect1();
-            creatures1 = campo.effect2();
-        }
-        discriminante1 = showInstants(giocatore1.hand, creatures1);
+        else
+            discriminante1 = showInstants(giocatore1.hand, creatures1);
         chosen=0;        
         do{
             try{
@@ -124,7 +127,12 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                discriminante1 = showInstants(inst1, creatures1);
+                if(giocatore1.board.isEmpty()){
+                    discriminante1 = giocatore1.lungMano();
+                    showCards(giocatore1.hand);
+                }
+                else
+                    discriminante1 = showInstants(giocatore1.hand, creatures1);
                 //completare
                 do{
                     try{
@@ -156,7 +164,12 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                discriminante2 = showInstants(inst2, creatures2);
+                if(giocatore2.board.isEmpty()){
+                    discriminante2 = giocatore2.lungMano();
+                    showCards(giocatore2.hand);
+                }
+                else
+                    discriminante2 = showInstants(giocatore2.hand, creatures2);
                 //comnpletare
                 do{
                     try{
