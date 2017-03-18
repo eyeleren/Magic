@@ -77,12 +77,12 @@ public class Interfaccia {
         Creature c2;
         boolean passes1 = false;
         boolean passes2 = false;
-        boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
+        boolean empty; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
         int discriminante1,discriminante2;
         System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
-        LinkedList<Creature> creatures1 = new LinkedList<>();
-        LinkedList<Creature> creatures2 = new LinkedList<>();
+        LinkedList<Creature> creatures1;
+        LinkedList<Creature> creatures2;
         creatures1 = giocatore1.effect();
         creatures2 = giocatore2.effect();
         //if(giocatore1.board.isEmpty()){
@@ -108,8 +108,8 @@ public class Interfaccia {
             c = giocatore1.hand.remove(chosen -1);
             c.activate(giocatore1, giocatore2, stack);
         }
-        else if(chosen < creatures1.size()){
-            c2 = creatures1.remove(chosen -1 -discriminante1);
+        else if(chosen <= (giocatore1.hand.size() + creatures1.size())){
+            c2 = creatures1.remove(chosen -discriminante1);
             c2.effect(stack);
         }
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
@@ -147,8 +147,8 @@ public class Interfaccia {
                         c = giocatore1.hand.remove(sc);
                         c.activate(giocatore1, giocatore2, stack);
                     }
-                    else  if(chosen < (inst1.size() + creatures1.size())){
-                        c2 = creatures1.remove(chosen -1 -discriminante1);
+                    else if(chosen <= (inst1.size() + creatures1.size())){
+                        c2 = creatures1.remove(chosen -discriminante1);
                         c2.effect(stack);
                     }
                 }
@@ -184,8 +184,8 @@ public class Interfaccia {
                         c = giocatore2.hand.remove(sc);
                         c.activate(giocatore2, giocatore1, stack);
                     }
-                    else if(chosen < (inst2.size() + creatures2.size())){
-                        c2 = creatures2.remove(chosen -1 -discriminante2);
+                    else if(chosen <= (inst2.size() + creatures2.size())){
+                        c2 = creatures2.remove(chosen -discriminante2);
                         c2.effect(stack);
                     }
                 }
@@ -222,7 +222,7 @@ public class Interfaccia {
                     catch(NumberFormatException e){
                         System.out.println("Input non valido");
                     }
-                    if(choosen > 0){
+                    if(choosen > 0 && choosen <= carte.size()){
                         Card c;
                         c = (Card) carte.get(choosen-1);
                         System.out.println(c.getName() + "  " + c.getType() + "  " + c.getDescription());
