@@ -92,7 +92,7 @@ public class creatureMagikarp implements Creature{
 
     @Override
     public boolean isTapped() {
-        return false;
+        return tapped;
     }
 
     @Override

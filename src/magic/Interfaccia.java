@@ -60,14 +60,12 @@ public class Interfaccia {
             i++;
         }
         res = i;
-        if(!c2.isEmpty()){
-            Iterator b = c2.listIterator(0);
-            while(b.hasNext()){
-                p2 = (Creature) b.next();
-                temp = p2.getName();
-                System.out.print("(" + i + ") effetto di " + temp + ", ");
-                i++;
-            }
+        Iterator b = c2.listIterator(0);
+        while(b.hasNext()){
+            p2 = (Creature) b.next();
+            temp = p2.getName();
+            System.out.print("(" + i + ") effetto di " + temp + ", ");
+            i++;
         }
         System.out.println("\n");
         return res;
@@ -87,11 +85,11 @@ public class Interfaccia {
         LinkedList<Creature> creatures2 = new LinkedList<>();
         creatures1 = giocatore1.effect();
         creatures2 = giocatore2.effect();
-        if(giocatore1.board.isEmpty()){
-            discriminante1 = giocatore1.lungMano();
-            showCards(giocatore1.hand);
-        }
-        else
+        //if(giocatore1.board.isEmpty()){
+        //    discriminante1 = giocatore1.lungMano() + 1;
+        //    showCards(giocatore1.hand);
+        //}
+        //else
             discriminante1 = showInstants(giocatore1.hand, creatures1);
         chosen=0;        
         do{
@@ -102,7 +100,7 @@ public class Interfaccia {
                     System.out.println("Non hai scelto una carta valida, prova di nuovo.");
                     chosen = giocatore1.hand.size() + 1;
             }
-        }while(chosen > giocatore1.hand.size());
+        }while(chosen > giocatore1.hand.size() + creatures1.size());
         if(chosen - 1 < 0)
             return;
         //completare
@@ -110,8 +108,8 @@ public class Interfaccia {
             c = giocatore1.hand.remove(chosen -1);
             c.activate(giocatore1, giocatore2, stack);
         }
-        else{
-            c2 = creatures1.remove(chosen -1);
+        else if(chosen < creatures1.size()){
+            c2 = creatures1.remove(chosen -1 -discriminante1);
             c2.effect(stack);
         }
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
@@ -127,12 +125,12 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                if(giocatore1.board.isEmpty()){
-                    discriminante1 = giocatore1.lungMano();
-                    showCards(giocatore1.hand);
-                }
-                else
-                    discriminante1 = showInstants(giocatore1.hand, creatures1);
+                //if(giocatore1.board.isEmpty()){
+                //    discriminante1 = inst1.size();
+                //    showCards(inst1);
+                //}
+                //else
+                    discriminante1 = showInstants(inst1, creatures1);
                 //completare
                 do{
                     try{
@@ -142,15 +140,15 @@ public class Interfaccia {
                         System.out.println("Non hai scelto una carta valida, prova di nuovo.");
                         chosen = giocatore1.hand.size() + 1;
                     }
-                }while(chosen > giocatore1.hand.size());
+                }while(chosen > inst1.size() + creatures1.size());
                 if(chosen > 0){
                     if(chosen-1 >= 0 && chosen < discriminante1){
                         int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
                         c = giocatore1.hand.remove(sc);
                         c.activate(giocatore1, giocatore2, stack);
                     }
-                    else{
-                        c2 = creatures1.remove(chosen -1);
+                    else  if(chosen < (inst1.size() + creatures1.size())){
+                        c2 = creatures1.remove(chosen -1 -discriminante1);
                         c2.effect(stack);
                     }
                 }
@@ -164,12 +162,12 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                if(giocatore2.board.isEmpty()){
-                    discriminante2 = giocatore2.lungMano();
-                    showCards(giocatore2.hand);
-                }
-                else
-                    discriminante2 = showInstants(giocatore2.hand, creatures2);
+                //if(giocatore2.board.isEmpty()){
+                //    discriminante2 = inst2.size();
+                //    showCards(inst2);
+                //}
+                //else
+                    discriminante2 = showInstants(inst2, creatures2);
                 //comnpletare
                 do{
                     try{
@@ -179,15 +177,15 @@ public class Interfaccia {
                         System.out.println("Non hai scelto una carta valida, prova di nuovo.");
                         chosen = giocatore2.hand.size() + 1;
                     }
-                }while(chosen > giocatore2.hand.size());
+                }while(chosen > inst2.size() + creatures2.size());
                 if(chosen > 0){
                     if(chosen-1 >= 0 && chosen < discriminante2){
                         int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
                         c = giocatore2.hand.remove(sc);
                         c.activate(giocatore2, giocatore1, stack);
                     }
-                    else{
-                        c2 = creatures2.remove(chosen -1);
+                    else if(chosen < (inst2.size() + creatures2.size())){
+                        c2 = creatures2.remove(chosen -1 -discriminante2);
                         c2.effect(stack);
                     }
                 }
@@ -203,7 +201,7 @@ public class Interfaccia {
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name );
         System.out.println("Queste sono le carte disponibili:");
-        for(int i = 6; i > 0; i--){
+        for(int i = 8; i > 0; i--){
             choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");

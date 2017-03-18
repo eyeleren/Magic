@@ -83,7 +83,7 @@ public class Giocatore {
         Iterator x = this.board.listIterator(0);
         while(x.hasNext()){
             Creature cr = (Creature) x.next();
-            if(cr.hasEffect() && cr.isTapped()){
+            if(cr.hasEffect() && !cr.isTapped()){
                 res.add(cr);
             }
         }
