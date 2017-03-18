@@ -53,14 +53,17 @@ public class Interfaccia {
         System.out.println(giocatore1.name + " scegli una carta da giocare.");
         showCards(giocatore1.hand);
         chosen=0;        
-        while(chosen <= 0 || chosen > giocatore1.hand.size() ){
+        do{
             try{
                 chosen = Integer.parseInt(buff.readLine());
-                }
-                catch(NumberFormatException e){
+            }
+            catch(NumberFormatException e){
                     System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-                }
-        }
+                    chosen = giocatore1.hand.size() + 1;
+            }
+        }while(chosen > giocatore1.hand.size());
+        if(chosen - 1 < 0)
+            return;
         c = giocatore1.hand.remove(chosen -1);
         c.activate(stack);
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
@@ -74,18 +77,29 @@ public class Interfaccia {
             if(turn == 1 && !passes1){
                 System.out.println(giocatore1.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
+                System.out.println("altrimenti scegli un'istantanea da giocare.");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
+                do{
+                    try{
+                        chosen = Integer.parseInt(buff.readLine());
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                        chosen = giocatore1.hand.size() + 1;
+                    }
+                }while(chosen > giocatore1.hand.size());
                 if(chosen >= 0){
-                    System.out.println("altrimenti scegli un'istantanea da giocare.");
                     LinkedList inst1 = giocatore1.showInstant();
                     showCards(inst1);
-                    chosen = Integer.parseInt(buff.readLine());
-                    
-                    while(chosen  > inst1.size() ){
-                    System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-                    chosen = Integer.parseInt(buff.readLine());
-                    }
-                    
+                    do{
+                        try{
+                            chosen = Integer.parseInt(buff.readLine());
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                            chosen = giocatore1.hand.size() + 1;
+                        }
+                    }while(chosen > giocatore1.hand.size());
                     if(chosen-1 >= 0){
                         int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
                         c = giocatore1.hand.remove(sc);
@@ -103,18 +117,29 @@ public class Interfaccia {
             else if(!passes2){
                 System.out.println(giocatore2.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
+                System.out.println("altrimenti scegli un'istantanea da giocare.");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
-                if(chosen >= 0){
-                    System.out.println("altrimenti scegli un'istantanea da giocare.");
-                    LinkedList inst2 = giocatore1.showInstant();
-                    showCards(inst2);
-                    chosen = Integer.parseInt(buff.readLine());
-                    
-                    while(chosen > inst2.size() ){
-                    System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-                    chosen = Integer.parseInt(buff.readLine());
+                do{
+                    try{
+                        chosen = Integer.parseInt(buff.readLine());
                     }
-                    
+                    catch(NumberFormatException e){
+                        System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                        chosen = giocatore2.hand.size() + 1;
+                    }
+                }while(chosen > giocatore2.hand.size());
+                if(chosen >= 0){
+                    LinkedList inst2 = giocatore2.showInstant();
+                    showCards(inst2);
+                    do{
+                        try{
+                            chosen = Integer.parseInt(buff.readLine());
+                            }
+                            catch(NumberFormatException e){
+                                System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                                chosen = giocatore2.hand.size() + 1;
+                            }
+                    }while(chosen > giocatore2.hand.size());
                     if(chosen-1 >= 0){
                         int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
                         c = giocatore2.hand.remove(sc);
@@ -150,8 +175,6 @@ public class Interfaccia {
                 }
             }
             g.deckInsert((Card) carte.get(choosen-1));
-            
-            
         }
         System.out.println("Preparazione mazzo personalizzato completata. \n");
     }

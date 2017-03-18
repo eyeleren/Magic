@@ -16,7 +16,6 @@ public class Magic {
     public static void main(String[] args) throws IOException {
         //Inizializzazione di tutto ;)
         boolean loose;
-        int turn;
         String nome1, nome2;
         Giocatore g1 = new Giocatore();
         Giocatore g2 = new Giocatore();
@@ -49,17 +48,17 @@ public class Magic {
         newHand(g1);
         newHand(g2);
         loose = false;
-        turn = 1;
+        campo.turn = 1;
         while(!loose){
-            if(turn == 1){
+            if(campo.turn == 1){
                 System.out.println("Inizio del turno di " + g1.name + ".");
-                turn = 2;
+                campo.turn = 2;
                 loose = Gfasi.phaseCalls(g1, g2, campo, buff);
                 Gfasi.resetPhaseList(campo);
             }
             else{
                 System.out.println("Inizio del turno di " + g2.name + ".");
-                turn = 1;
+                campo.turn = 1;
                 loose = Gfasi.phaseCalls(g2, g1, campo, buff);
                 Gfasi.resetPhaseList(campo);
             }

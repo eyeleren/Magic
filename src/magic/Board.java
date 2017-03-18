@@ -8,6 +8,7 @@ import magic.Spells.Spell;
 /*+++BOARD+++ contiene creature e permanenti suddivisi per i due giocatori e l'occhio che vede tutto (trigger)*/
 
 public class Board {
+    public int turn;
     public List<Creature> boardp1 = new LinkedList<>();
     public List<Creature> boardp2 = new LinkedList<>();
     public List<Spell> perma1 = new LinkedList<>();
