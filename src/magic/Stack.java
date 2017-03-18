@@ -26,12 +26,6 @@ public class Stack {
         s.remove(e);
     }
     
-    /*Funzione per avere una visione di ciò che è stato caricato nello stack, non funzia*/
-    public List<Spell> view(){
-        List<Spell> vista = new ArrayList<>(s);
-        return vista;
-    }
-    
     public boolean resolveStack(){
         Spell a;
         boolean loose;

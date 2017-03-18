@@ -17,14 +17,6 @@ import magic.Fasi.mainPhase;
 public class GestoreFasi {
     public List<Phase> fasi = new LinkedList<>();
     
-    private Giocatore g;
-    private Board b;
-    
-    public void setGiocatoreAndBoard(Giocatore a, Board h){
-        this.b = h;
-        this.g = a;
-    }
-    
     public boolean phaseCalls(Giocatore g1, Giocatore g2, Board b, BufferedReader buff) throws IOException{
         Phase a;
         boolean r;

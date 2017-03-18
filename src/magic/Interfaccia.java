@@ -50,7 +50,7 @@ public class Interfaccia {
         boolean passes2 = false;
         boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
-        System.out.println(giocatore1.name + " scegli una carta da giocare.");
+        System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
         showCards(giocatore1.hand);
         chosen=0;        
         do{
@@ -147,18 +147,34 @@ public class Interfaccia {
             choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");
-            System.out.println("Scegli una carta:");
+            System.out.println("Scegli una carta, numero negativo per chiedere la descrizione:");
             while(choosen > carte.size() || choosen < 1){
+                System.out.println("Carta n°:");
                 try{
                     choosen = Integer.parseInt(buff.readLine());
                 }
                 catch(NumberFormatException e){
                     System.out.println("Scegli una carta, stavolta una che esiste, grazie.");
                 }
+                if(choosen < 0){
+                    System.out.println("Inserisci il numero della carta di cui vuoi leggere la descrizione:");
+                    try{
+                        choosen = Integer.parseInt(buff.readLine());
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Input non valido");
+                    }
+                    if(choosen > 0){
+                        Card c;
+                        c = (Card) carte.get(choosen-1);
+                        System.out.println(c.getName() + "  " + c.getType() + "  " + c.getDescription());
+                    }
+                    i++;
+                }
             }
             g.deckInsert((Card) carte.get(choosen-1));
         }
-        System.out.println("Preparazione mazzo personalizzato completata. \n");
+        System.out.println("Preparazione mazzo personalizzato completata.\n");
     }
     
     public static void newHand(Giocatore g){
