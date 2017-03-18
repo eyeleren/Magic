@@ -52,11 +52,14 @@ public class Interfaccia {
         int turn = 1;
         System.out.println(giocatore1.name + " scegli una carta da giocare.");
         showCards(giocatore1.hand);
-        chosen = Integer.parseInt(buff.readLine());
-        
-        while(chosen < 0 || chosen > giocatore1.hand.size() ){
-            System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-            chosen = Integer.parseInt(buff.readLine());
+        chosen=0;        
+        while(chosen <= 0 || chosen > giocatore1.hand.size() ){
+            try{
+                chosen = Integer.parseInt(buff.readLine());
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                }
         }
         c = giocatore1.hand.remove(chosen -1);
         c.activate(stack);
@@ -70,7 +73,7 @@ public class Interfaccia {
             }
             if(turn == 1 && !passes1){
                 System.out.println(giocatore1.name + " vuoi rispondere con un'istantanea? ");
-                System.out.println("Inserisci un numero negativo per passare, ");
+                System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
                     System.out.println("altrimenti scegli un'istantanea da giocare.");
@@ -99,7 +102,7 @@ public class Interfaccia {
             }
             else if(!passes2){
                 System.out.println(giocatore2.name + " vuoi rispondere con un'istantanea? ");
-                System.out.println(giocatore2.name + " inserisci un numero negativo per passare, ");
+                System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 if(chosen >= 0){
                     System.out.println("altrimenti scegli un'istantanea da giocare.");
@@ -133,7 +136,7 @@ public class Interfaccia {
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name );
         System.out.println("Queste sono le carte disponibili:");
-        for(int i = 10; i > 0; i--){
+        for(int i = 6; i > 0; i--){
             choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");
