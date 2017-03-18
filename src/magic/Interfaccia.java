@@ -79,7 +79,7 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                    showCards(inst1);
+                showCards(inst1);
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 do{
                     try{
@@ -91,16 +91,6 @@ public class Interfaccia {
                     }
                 }while(chosen > giocatore1.hand.size());
                 if(chosen >= 0){
-                    
-                    do{
-                        try{
-                            chosen = Integer.parseInt(buff.readLine());
-                        }
-                        catch(NumberFormatException e){
-                            System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-                            chosen = giocatore1.hand.size() + 1;
-                        }
-                    }while(chosen > giocatore1.hand.size());
                     if(chosen-1 >= 0){
                         int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
                         c = giocatore1.hand.remove(sc);
@@ -120,7 +110,7 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                    showCards(inst2);
+                showCards(inst2);
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 do{
                     try{
@@ -132,16 +122,6 @@ public class Interfaccia {
                     }
                 }while(chosen > giocatore2.hand.size());
                 if(chosen >= 0){
-                    
-                    do{
-                        try{
-                            chosen = Integer.parseInt(buff.readLine());
-                            }
-                            catch(NumberFormatException e){
-                                System.out.println("Non hai scelto una carta valida, prova di nuovo.");
-                                chosen = giocatore2.hand.size() + 1;
-                            }
-                    }while(chosen > giocatore2.hand.size());
                     if(chosen-1 >= 0){
                         int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
                         c = giocatore2.hand.remove(sc);
