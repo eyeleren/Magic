@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magic.Creatures;
 
+import magic.Spells.MagikarpEffect;
+import magic.Spells.Spell;
 import magic.Stack;
 
-/**
- *
- * @author Roberto
- */
-public class creatureMagikarp implements Creature{
+public class CreatureMagikarp implements Creature{
 
     private final int originAttack;
     private final int originDefense;
@@ -21,7 +15,7 @@ public class creatureMagikarp implements Creature{
     public int damage;
     
     
-    public creatureMagikarp(){
+    public CreatureMagikarp(){
         originAttack = 0;
         originDefense = 0;
         attack = 0;
@@ -97,7 +91,9 @@ public class creatureMagikarp implements Creature{
 
     @Override
     public void effect(Stack s) {
-        System.out.println("Non succede niente");
+        this.tap();
+        Spell e = new MagikarpEffect();
+        s.addSpell(e);
     }
     
 }

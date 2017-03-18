@@ -50,6 +50,7 @@ public class Draw implements Phase{
         return false;
     }
 
+    @Override
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff) throws IOException {    
         boolean r;
         this.player = giocatore1;

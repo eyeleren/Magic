@@ -3,7 +3,7 @@ package magic.Cards;
 
 import magic.Giocatore;
 import magic.Spells.Spell;
-import magic.Spells.loaderOmeophaty;
+import magic.Spells.OmeophatyEffect;
 import magic.Stack;
 
 public class Omeophaty implements Card{
@@ -15,7 +15,7 @@ public class Omeophaty implements Card{
     public Omeophaty() {
         this.name = "Omeophaty";
         this.type = "Instant";
-        this.description = "This card does nothing: Magikarp uses Splash, but nothing happens";
+        this.description = "This card does absolutely nothing";
     }
     
     @Override
@@ -35,7 +35,7 @@ public class Omeophaty implements Card{
 
     @Override
     public void activate(Giocatore g1, Giocatore g2, Stack s) {
-        Spell a = new loaderOmeophaty();
+        Spell a = new OmeophatyEffect();
         s.addSpell(a);
     }
     

@@ -50,6 +50,7 @@ public class Interfaccia {
         Iterator a = c.listIterator(0);
         int i = 1;
         int res;
+        boolean noone = false;
         String temp;
         Card p;
         Creature p2;
@@ -58,8 +59,11 @@ public class Interfaccia {
             temp = p.getName();
             System.out.print("(" + i + ") " + temp + ", ");
             i++;
+            noone = true;
         }
         res = i;
+        if(!noone)
+            System.out.print("Non hai instantanee ");
         Iterator b = c2.listIterator(0);
         while(b.hasNext()){
             p2 = (Creature) b.next();
@@ -77,7 +81,7 @@ public class Interfaccia {
         Creature c2;
         boolean passes1 = false;
         boolean passes2 = false;
-        boolean empty; //Se uno dei due giocatori non può giocare istantanee.
+        boolean empty1 = false, empty2; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
         int discriminante1,discriminante2;
         System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
@@ -85,12 +89,7 @@ public class Interfaccia {
         LinkedList<Creature> creatures2;
         creatures1 = giocatore1.effect();
         creatures2 = giocatore2.effect();
-        //if(giocatore1.board.isEmpty()){
-        //    discriminante1 = giocatore1.lungMano() + 1;
-        //    showCards(giocatore1.hand);
-        //}
-        //else
-            discriminante1 = showInstants(giocatore1.hand, creatures1);
+        discriminante1 = showInstants(giocatore1.hand, creatures1);
         chosen=0;        
         do{
             try{
@@ -103,7 +102,6 @@ public class Interfaccia {
         }while(chosen > giocatore1.hand.size() + creatures1.size());
         if(chosen - 1 < 0)
             return;
-        //completare
         if(chosen < discriminante1){
             c = giocatore1.hand.remove(chosen -1);
             c.activate(giocatore1, giocatore2, stack);
@@ -112,8 +110,8 @@ public class Interfaccia {
             c2 = creatures1.remove(chosen -discriminante1);
             c2.effect(stack);
         }
-        empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
-        while((!passes1 && !passes2) && !empty){
+        empty2 = giocatore2.noInstant() && creatures2.isEmpty(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
+        while((!passes1 || !passes2) && (!empty1 || !empty2)){
             if(turn==1){
                 turn++;
             }
@@ -125,13 +123,7 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                //if(giocatore1.board.isEmpty()){
-                //    discriminante1 = inst1.size();
-                //    showCards(inst1);
-                //}
-                //else
-                    discriminante1 = showInstants(inst1, creatures1);
-                //completare
+                discriminante1 = showInstants(inst1, creatures1);
                 do{
                     try{
                         chosen = Integer.parseInt(buff.readLine());
@@ -155,20 +147,14 @@ public class Interfaccia {
                 else{
                     passes1 = true;
                 }
-                empty = giocatore1.noInstant();
+                empty1 = giocatore1.noInstant() && creatures1.isEmpty();
             }
             else if(!passes2){
                 System.out.println(giocatore2.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                //if(giocatore2.board.isEmpty()){
-                //    discriminante2 = inst2.size();
-                //    showCards(inst2);
-                //}
-                //else
-                    discriminante2 = showInstants(inst2, creatures2);
-                //comnpletare
+                discriminante2 = showInstants(inst2, creatures2);
                 do{
                     try{
                         chosen = Integer.parseInt(buff.readLine());
@@ -192,7 +178,7 @@ public class Interfaccia {
                 else{
                     passes2 = true;
                 }
-                empty = giocatore2.noInstant();
+                empty2 = giocatore2.noInstant() && creatures2.isEmpty();
             }
         }
     }
@@ -201,7 +187,7 @@ public class Interfaccia {
         int choosen;
         System.out.println("Inizio preparazione del mazzo del giocatore: " + g.name );
         System.out.println("Queste sono le carte disponibili:");
-        for(int i = 8; i > 0; i--){
+        for(int i = 20; i > 0; i--){
             choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");

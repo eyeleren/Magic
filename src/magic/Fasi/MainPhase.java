@@ -16,12 +16,12 @@ sempre con un istantanea, la phase termina con la risoluzione delle spell nello 
 Alcuni metodi di questa classe appartengono alla classe interfaccia, dato che c'è bisogno di gestire operazioni di i/o riguardanti la scelta delle carte.*/
 
 
-public class mainPhase implements Phase{
+public class MainPhase implements Phase{
     public Stack stack;
     public boolean passes1 = false;
     public boolean passes2 = false;
     
-    public mainPhase(){
+    public MainPhase(){
         this.stack = new Stack();
     }
     

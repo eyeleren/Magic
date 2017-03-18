@@ -3,8 +3,7 @@ package magic.Cards;
 
 import magic.Giocatore;
 import magic.Spells.Spell;
-import magic.Spells.loaderMagikarp;
-import magic.Spells.loaderOmeophaty;
+import magic.Spells.MagikarpLoader;
 import magic.Stack;
 
 public class Magikarp implements Card{
@@ -36,7 +35,7 @@ public class Magikarp implements Card{
 
     @Override
     public void activate(Giocatore g1, Giocatore g2, Stack s) {
-        Spell a = new loaderMagikarp(g1);
+        Spell a = new MagikarpLoader(g1);
         s.addSpell(a);
     }
     

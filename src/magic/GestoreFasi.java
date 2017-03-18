@@ -10,7 +10,7 @@ import magic.Fasi.Draw;
 import magic.Fasi.End;
 import magic.Fasi.Phase;
 import magic.Fasi.Untap;
-import magic.Fasi.mainPhase;
+import magic.Fasi.MainPhase;
 
 /*+++GESTORE DELLE FASI+++ Classe che contine i meccanismi di gestione delle fasi di gioco*/
 
@@ -42,7 +42,7 @@ public class GestoreFasi {
         Draw n1 = new Draw();
         Untap n2 = new Untap(board);
         Combat n3 =  new Combat();
-        mainPhase n4 = new mainPhase();
+        MainPhase n4 = new MainPhase();
         End n5 = new End(board);
         fasi.add(n1);
         fasi.add(n2);

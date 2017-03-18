@@ -37,6 +37,7 @@ public class Untap implements Phase{
         }
     }
     
+    @Override
     public boolean execute(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff){
         System.out.println(giocatore1.name + ", svolgimento Untap Phase, le tue creature sono state stappate.");
         if (giocatore1.getId() == 1){
