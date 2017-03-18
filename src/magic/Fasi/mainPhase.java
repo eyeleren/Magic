@@ -31,7 +31,7 @@ public class mainPhase implements Phase{
         System.out.println(giocatore1.name + " la tua Main Phase è iniziata.");
         chargeStack(giocatore1, giocatore2, campo, buff, stack);
         System.out.println("Fine del caricamento dello stack, ora verrà risolto.");
-        l = stack.resolveStack();
+        l = stack.resolveStack(giocatore1, giocatore2, campo);
         campo.occhio.mainTrigger(Sauron.MAIN);
         return l;
     }

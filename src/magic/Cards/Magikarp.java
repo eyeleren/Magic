@@ -1,6 +1,7 @@
 
 package magic.Cards;
 
+import magic.Giocatore;
 import magic.Spells.Spell;
 import magic.Spells.loaderMagikarp;
 import magic.Spells.loaderOmeophaty;
@@ -14,7 +15,7 @@ public class Magikarp implements Card{
 
     public Magikarp() {
         this.name = "Magikarp";
-        this.type = "Spell";
+        this.type = "Creature";
         this.description = "This card does nothing: Splash...";
     }
     
@@ -34,8 +35,8 @@ public class Magikarp implements Card{
     }
 
     @Override
-    public void activate(Stack s) {
-        Spell a = new loaderMagikarp();
+    public void activate(Giocatore g1, Giocatore g2, Stack s) {
+        Spell a = new loaderMagikarp(g1);
         s.addSpell(a);
     }
     

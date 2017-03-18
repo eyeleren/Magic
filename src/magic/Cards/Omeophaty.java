@@ -1,6 +1,7 @@
 
 package magic.Cards;
 
+import magic.Giocatore;
 import magic.Spells.Spell;
 import magic.Spells.loaderOmeophaty;
 import magic.Stack;
@@ -33,7 +34,7 @@ public class Omeophaty implements Card{
     }
 
     @Override
-    public void activate(Stack s) {
+    public void activate(Giocatore g1, Giocatore g2, Stack s) {
         Spell a = new loaderOmeophaty();
         s.addSpell(a);
     }

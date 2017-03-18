@@ -105,7 +105,7 @@ public class Interfaccia {
         //completare
         if(chosen < discriminante1){
             c = giocatore1.hand.remove(chosen -1);
-            c.activate(stack);
+            c.activate(giocatore1, giocatore2, stack);
         }
         else{
             c2 = creatures1.remove(chosen -1);
@@ -139,7 +139,7 @@ public class Interfaccia {
                     if(chosen-1 >= 0 && chosen < discriminante1){
                         int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
                         c = giocatore1.hand.remove(sc);
-                        c.activate(stack);
+                        c.activate(giocatore1, giocatore2, stack);
                     }
                     else{
                         c2 = creatures1.remove(chosen -1);
@@ -171,7 +171,7 @@ public class Interfaccia {
                     if(chosen-1 >= 0 && chosen < discriminante2){
                         int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
                         c = giocatore2.hand.remove(sc);
-                        c.activate(stack);
+                        c.activate(giocatore2, giocatore1, stack);
                     }
                     else{
                         c2 = creatures2.remove(chosen -1);

@@ -26,12 +26,12 @@ public class Stack {
         s.remove(e);
     }
     
-    public boolean resolveStack(){
+    public boolean resolveStack(Giocatore g1, Giocatore g2, Board b){
         Spell a;
         boolean loose;
         while(!s.isEmpty()){
             a = s.pop();
-            loose = a.cast();
+            loose = a.cast(g1, g2, b);
             if(loose)
                 return loose;
         }
