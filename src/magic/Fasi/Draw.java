@@ -28,7 +28,15 @@ public class Draw implements Phase{
                 showCards(player.hand);
                 int r;
                 System.out.println(player.name + " la tua mano contiene più di 7 carte, scegli una carta da scartare:");
-                r = Integer.parseInt(buff.readLine());
+                do{
+                    try{
+                        r = Integer.parseInt(buff.readLine());
+                    }
+                    catch(NumberFormatException e){
+                            System.out.println("Non hai scelto una carta valida, prova di nuovo.");
+                            r = 0;
+                    }
+                }while(r < 1 || r > 9);
                 player.hand.remove(r);
             }
             else{

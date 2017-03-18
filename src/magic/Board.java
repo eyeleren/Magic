@@ -17,8 +17,8 @@ public class Board {
     
     
     
-    public List<Creature> effect1(){
-        List<Creature> res = null;
+    public LinkedList<Creature> effect1(){
+        LinkedList<Creature> res = null;
         Iterator x = boardp1.listIterator(0);
         while(x.hasNext()){
             Creature cr = (Creature) x.next();
@@ -29,8 +29,8 @@ public class Board {
         return res;
     }
     
-     public List<Creature> effect2(){
-        List<Creature> res = null;
+     public LinkedList<Creature> effect2(){
+        LinkedList<Creature> res = null;
         Iterator x = boardp2.listIterator(0);
         while(x.hasNext()){
             Creature cr = (Creature) x.next();

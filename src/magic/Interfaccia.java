@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import magic.Cards.Card;
 import magic.Cards.Magikarp;
 import magic.Cards.Omeophaty;
+import magic.Creatures.Creature;
 
 
 /*+++CLASSE INTERFACCIA+++ gestisce varie operazioni legate a standard input/output*/
@@ -43,6 +44,28 @@ public class Interfaccia {
         System.out.println("\n");
     }
     
+    public static void showInstants(LinkedList<Card> c, LinkedList<Creature> c2){
+        Iterator a = c.listIterator(0);
+        Iterator b = c2.listIterator(0);
+        int i = 1;
+        String temp;
+        Card p;
+        Creature p2;
+        while(a.hasNext()){
+            p = (Card) a.next();
+            temp = p.getName();
+            System.out.print("(" + i + ") " + temp + ", ");
+            i++;
+        }
+        while(b.hasNext()){
+            p2 = (Creature) b.next();
+            temp = p2.getName();
+            System.out.print("(" + i + ") " + temp + ", ");
+            i++;
+        }
+        System.out.println("\n");
+    }
+    
     public static void chargeStack(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff, Stack stack) throws IOException{
         int chosen;
         Card c;
@@ -51,7 +74,17 @@ public class Interfaccia {
         boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
         System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
-        showCards(giocatore1.hand);
+        LinkedList<Creature> creatures1 = new LinkedList<>();
+        LinkedList<Creature> creatures2 = new LinkedList<>();
+        if(giocatore1.getId() == 1){
+            creatures1 = campo.effect1();
+            creatures2 = campo.effect2();
+        }
+        else{
+            creatures2 = campo.effect1();
+            creatures1 = campo.effect2();
+        }
+        showInstants(giocatore1.hand, creatures1);
         chosen=0;        
         do{
             try{
@@ -64,6 +97,7 @@ public class Interfaccia {
         }while(chosen > giocatore1.hand.size());
         if(chosen - 1 < 0)
             return;
+        //completare
         c = giocatore1.hand.remove(chosen -1);
         c.activate(stack);
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
@@ -79,8 +113,8 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                showCards(inst1);
-                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
+                showInstants(inst1, creatures1);
+                //completare
                 do{
                     try{
                         chosen = Integer.parseInt(buff.readLine());
@@ -110,8 +144,8 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                showCards(inst2);
-                //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
+                showInstants(inst2, creatures2);
+                //comnpletare
                 do{
                     try{
                         chosen = Integer.parseInt(buff.readLine());
@@ -147,7 +181,7 @@ public class Interfaccia {
             choosen = 0;
             showCards(carte);
             System.out.println("Ti restano " + i + " carte da scegliere.");
-            System.out.println("Scegli una carta, numero negativo per chiedere la descrizione:");
+            System.out.println("Scegli una carta, 0 per chiedere la descrizione:");
             while(choosen > carte.size() || choosen < 1){
                 System.out.println("Carta n°:");
                 try{
@@ -156,7 +190,7 @@ public class Interfaccia {
                 catch(NumberFormatException e){
                     System.out.println("Scegli una carta, stavolta una che esiste, grazie.");
                 }
-                if(choosen < 0){
+                if(choosen == 0){
                     System.out.println("Inserisci il numero della carta di cui vuoi leggere la descrizione:");
                     try{
                         choosen = Integer.parseInt(buff.readLine());

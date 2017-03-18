@@ -3,7 +3,7 @@ package magic.Creatures;
 
 
 public interface Creature {
-    public void getName();
+    public String getName();
     public void getDescription();
     
     public int getAttack();
