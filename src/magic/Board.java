@@ -14,4 +14,31 @@ public class Board {
     public List<Spell> perma1 = new LinkedList<>();
     public List<Spell> perma2 = new LinkedList<>();
     public Sauron occhio = new Sauron();
+    
+    
+    
+    public List<Creature> effect1(){
+        List<Creature> res = null;
+        Iterator x = boardp1.listIterator(0);
+        while(x.hasNext()){
+            Creature cr = (Creature) x.next();
+            if(cr.hasEffect() && cr.isTapped()){
+                res.add(cr);
+            }
+        }
+        return res;
+    }
+    
+     public List<Creature> effect2(){
+        List<Creature> res = null;
+        Iterator x = boardp2.listIterator(0);
+        while(x.hasNext()){
+            Creature cr = (Creature) x.next();
+            if(cr.hasEffect() && cr.isTapped()){
+                res.add(cr);
+            }
+        }
+        return res;
+    }
+    
 }

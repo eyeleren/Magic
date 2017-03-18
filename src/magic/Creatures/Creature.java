@@ -18,6 +18,8 @@ public interface Creature {
     public void regen(); //rigenera DIFESA della creatura
     public void tap();
     public void untap();
+    public boolean hasEffect();
+    public boolean isTapped();
     public void effect();
     
 }
