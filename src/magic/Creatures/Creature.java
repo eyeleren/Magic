@@ -1,6 +1,8 @@
 
 package magic.Creatures;
 
+import magic.Stack;
+
 
 public interface Creature {
     public String getName();
@@ -20,6 +22,6 @@ public interface Creature {
     public void untap();
     public boolean hasEffect();
     public boolean isTapped();
-    public void effect();
+    public void effect(Stack s);
     
 }

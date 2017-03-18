@@ -44,10 +44,11 @@ public class Interfaccia {
         System.out.println("\n");
     }
     
-    public static void showInstants(LinkedList<Card> c, LinkedList<Creature> c2){
+    public static int showInstants(LinkedList<Card> c, LinkedList<Creature> c2){
         Iterator a = c.listIterator(0);
         Iterator b = c2.listIterator(0);
         int i = 1;
+        int res;
         String temp;
         Card p;
         Creature p2;
@@ -57,22 +58,26 @@ public class Interfaccia {
             System.out.print("(" + i + ") " + temp + ", ");
             i++;
         }
+        res = i;
         while(b.hasNext()){
             p2 = (Creature) b.next();
             temp = p2.getName();
-            System.out.print("(" + i + ") " + temp + ", ");
+            System.out.print("(" + i + ") effetto di " + temp + ", ");
             i++;
         }
         System.out.println("\n");
+        return res;
     }
     
     public static void chargeStack(Giocatore giocatore1, Giocatore giocatore2, Board campo, BufferedReader buff, Stack stack) throws IOException{
         int chosen;
         Card c;
+        Creature c2;
         boolean passes1 = false;
         boolean passes2 = false;
         boolean empty = false; //Se uno dei due giocatori non può giocare istantanee.
         int turn = 1;
+        int discriminante1,discriminante2;
         System.out.println(giocatore1.name + " scegli una carta da giocare, 0 o un numero negativo per saltare la fase.");
         LinkedList<Creature> creatures1 = new LinkedList<>();
         LinkedList<Creature> creatures2 = new LinkedList<>();
@@ -84,7 +89,7 @@ public class Interfaccia {
             creatures2 = campo.effect1();
             creatures1 = campo.effect2();
         }
-        showInstants(giocatore1.hand, creatures1);
+        discriminante1 = showInstants(giocatore1.hand, creatures1);
         chosen=0;        
         do{
             try{
@@ -98,8 +103,14 @@ public class Interfaccia {
         if(chosen - 1 < 0)
             return;
         //completare
-        c = giocatore1.hand.remove(chosen -1);
-        c.activate(stack);
+        if(chosen < discriminante1){
+            c = giocatore1.hand.remove(chosen -1);
+            c.activate(stack);
+        }
+        else{
+            c2 = creatures1.remove(chosen -1);
+            c2.effect(stack);
+        }
         empty = giocatore2.noInstant(); //se il giocatore 2 non ha istantanee allora neanche gli chiedo
         while((!passes1 && !passes2) && !empty){
             if(turn==1){
@@ -113,7 +124,7 @@ public class Interfaccia {
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst1 = giocatore1.showInstant();
-                showInstants(inst1, creatures1);
+                discriminante1 = showInstants(inst1, creatures1);
                 //completare
                 do{
                     try{
@@ -124,14 +135,15 @@ public class Interfaccia {
                         chosen = giocatore1.hand.size() + 1;
                     }
                 }while(chosen > giocatore1.hand.size());
-                if(chosen >= 0){
-                    if(chosen-1 >= 0){
+                if(chosen > 0){
+                    if(chosen-1 >= 0 && chosen < discriminante1){
                         int sc = giocatore1.hand.indexOf(inst1.remove(chosen-1));
                         c = giocatore1.hand.remove(sc);
                         c.activate(stack);
                     }
                     else{
-                        passes1 = true;
+                        c2 = creatures1.remove(chosen -1);
+                        c2.effect(stack);
                     }
                 }
                 else{
@@ -144,7 +156,7 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
                 LinkedList inst2 = giocatore2.showInstant();
-                showInstants(inst2, creatures2);
+                discriminante2 = showInstants(inst2, creatures2);
                 //comnpletare
                 do{
                     try{
@@ -155,14 +167,15 @@ public class Interfaccia {
                         chosen = giocatore2.hand.size() + 1;
                     }
                 }while(chosen > giocatore2.hand.size());
-                if(chosen >= 0){
-                    if(chosen-1 >= 0){
+                if(chosen > 0){
+                    if(chosen-1 >= 0 && chosen < discriminante2){
                         int sc = giocatore2.hand.indexOf(inst2.remove(chosen-1));
                         c = giocatore2.hand.remove(sc);
                         c.activate(stack);
                     }
                     else{
-                        passes2 = true;
+                        c2 = creatures2.remove(chosen -1);
+                        c2.effect(stack);
                     }
                 }
                 else{
