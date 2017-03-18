@@ -78,6 +78,8 @@ public class Interfaccia {
                 System.out.println(giocatore1.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println("Inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
+                LinkedList inst1 = giocatore1.showInstant();
+                    showCards(inst1);
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 do{
                     try{
@@ -89,8 +91,7 @@ public class Interfaccia {
                     }
                 }while(chosen > giocatore1.hand.size());
                 if(chosen >= 0){
-                    LinkedList inst1 = giocatore1.showInstant();
-                    showCards(inst1);
+                    
                     do{
                         try{
                             chosen = Integer.parseInt(buff.readLine());
@@ -118,6 +119,8 @@ public class Interfaccia {
                 System.out.println(giocatore2.name + " vuoi rispondere con un'istantanea? ");
                 System.out.println(giocatore2.name + " inserisci un numero negativo o 0 per passare, ");
                 System.out.println("altrimenti scegli un'istantanea da giocare.");
+                LinkedList inst2 = giocatore2.showInstant();
+                    showCards(inst2);
                 //fa vedere quali sono le carte istantanee che si possono giocare --> funzione dedicata --> fatto
                 do{
                     try{
@@ -129,8 +132,7 @@ public class Interfaccia {
                     }
                 }while(chosen > giocatore2.hand.size());
                 if(chosen >= 0){
-                    LinkedList inst2 = giocatore2.showInstant();
-                    showCards(inst2);
+                    
                     do{
                         try{
                             chosen = Integer.parseInt(buff.readLine());
