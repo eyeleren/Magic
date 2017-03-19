@@ -17,6 +17,7 @@ import magic.Fasi.MainPhase;
 public class GestoreFasi {
     public List<Phase> fasi = new LinkedList<>();
     
+    /*Funzione fondamentale sfruttata dal main (gestore dei turni) per chiamare la sequenza di fasi del turno di un giocatore, questa sequenza è data da una lista modificabile*/
     public boolean phaseCalls(Giocatore g1, Giocatore g2, Board b, BufferedReader buff) throws IOException{
         Phase a;
         boolean r;
@@ -37,6 +38,7 @@ public class GestoreFasi {
         fasi.remove(position);
     }
     
+    /*Funzione fondamentale che al termine di un turno resetta la lista secondo l'ordine normale del gioco*/
     public void resetPhaseList(Board board){
         fasi.clear();
         Draw n1 = new Draw();

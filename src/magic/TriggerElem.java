@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package magic;
 
-/**
- *
- * @author Roberto
- */
+/*
+Interfaccia che specifica il metodo activate che si riferisce alla chiamata dell'effetto da parte di un trigger
+*/
 public interface TriggerElem{
     public void activate();
 }

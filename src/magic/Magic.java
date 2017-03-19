@@ -14,7 +14,7 @@ import static magic.Interfaccia.*;
 public class Magic {
 
     public static void main(String[] args) throws IOException {
-        //Inizializzazione di tutto ;)
+        //Inizializzazione di tutti gli oggetti fondamentali del gioco
         boolean loose;
         String nome1, nome2;
         Giocatore g1 = new Giocatore();
@@ -37,7 +37,7 @@ public class Magic {
         System.out.println("Prego inserire i nomi dei giocatori:");
         nome1 = buff.readLine();
         nome2 = buff.readLine();
-        //Parte dell'interfaccia che fa costruire il mazzo etc
+        //Parte dell'interfaccia che fa costruire il mazzo
         setPlayers(g1, g2, nome1, nome2, campo); //Inizializzazione dei valori fondamentali dei giocatori
         //Inizializzazione (preparazione da parte dei giocatori) dei mazzi
         setDeck(g1, carte, buff);
@@ -47,6 +47,7 @@ public class Magic {
         //Inizializzazione delle mani dei giocatori: bigona farli pescare 5 carte ciascuno
         newHand(g1);
         newHand(g2);
+        //Sezione del gestore dei turni: effettua l'alternanza dei turni fra i giocatori e si occupa di chiamare e resettare il gestore delle fasi
         loose = false;
         campo.turn = 1;
         while(!loose){

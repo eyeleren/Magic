@@ -6,6 +6,10 @@ import magic.Spells.Spell;
 import magic.Spells.MagikarpLoader;
 import magic.Stack;
 
+/*
+Semplice carta di creatura per debug
+*/
+
 public class Magikarp implements Card{
 
     String name;

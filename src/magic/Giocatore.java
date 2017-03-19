@@ -35,6 +35,7 @@ public class Giocatore {
         return deck.size();
     }
     
+    /*Questa funzione consente di sapere se il giocatore ha istantanee da giocare dalla mano, utile per il caricamento dello stack*/
     public boolean noInstant(){
         Iterator x = hand.listIterator(0);
         Card f;
@@ -65,6 +66,7 @@ public class Giocatore {
         return health;
     }
     
+    /*Questa funzione restituisce una lista di istantanee da giocare dalla mano, utile per il caricamento dello stack*/
     public LinkedList<Card> showInstant(){
         Iterator x = hand.listIterator(0);
         LinkedList<Card> l = new LinkedList<>();
@@ -78,6 +80,7 @@ public class Giocatore {
         return l;
     }
     
+    /*Questa funzione restituisce una lista di creature con effetto da giocare se non sono tappate, utile per il caricamento dello stack*/
     public LinkedList<Creature> effect(){
         LinkedList<Creature> res = new LinkedList<>();
         Iterator x = this.board.listIterator(0);

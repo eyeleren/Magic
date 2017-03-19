@@ -3,16 +3,23 @@ package magic;
 
 import java.util.LinkedList;
 
-/*++SAURON+++*/
+/*++SAURON+++
+Si tratta dell'oggetto che effettua la funzione di trigger, si occupa di richieste di notifica in caso di eventi e nel caso essi avvengono avvertire
+chi si è registrato.
+
+(Il nome deriva dal signore degli anelli vista la somiglianza tra il personaggio e il fatto che quest'oggetto conosce tutti gli eventi del gioco)
+*/
 
 public class Sauron {
     
+    //Definizione delle costanti per codificare l'evento: fine della fase
     public static final int DRAW = 1;
     public static final int UNTAP = 2;
     public static final int COMBAT = 3;
     public static final int MAIN = 4;
     public static final int END = 5;
     
+    //Vi è una lista di registrazione per ogni fase del gioco, per ciascuna di esse vi sono i metodi per registrarsi e attivare il trigger
     LinkedList<TriggerElement> DrawTriggers;
     LinkedList<TriggerElement> UntapTriggers;
     LinkedList<TriggerElement> CombatTriggers;

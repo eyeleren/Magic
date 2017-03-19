@@ -4,6 +4,9 @@ package magic.Cards;
 import magic.Giocatore;
 import magic.Stack;
 
+/*
+Interfaccia che specifica i metodi in comune di tutte le carte.
+*/
 
 public interface Card {
     public String getName();

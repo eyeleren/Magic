@@ -4,6 +4,10 @@ package magic.Spells;
 import magic.Board;
 import magic.Giocatore;
 
+/*
+Effetto corrispondente della carta omeophaty per debug
+*/
+
 public class OmeophatyEffect implements Spell{
 
     @Override

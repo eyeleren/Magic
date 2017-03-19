@@ -4,7 +4,7 @@ package magic;
 import magic.Spells.Spell;
 import java.util.LinkedList;
 
-/*+++STACK+++ la classe contiene una lista ordinata di spell utile alla risoluzione degli effetti e i suoi metodi*/
+/*+++STACK+++ la classe contiene una lista ordinata di spell per la risoluzione degli effetti e i suoi metodi*/
 
 public class Stack {
     private LinkedList<Spell> s = new LinkedList<>();
@@ -24,6 +24,7 @@ public class Stack {
         s.remove(e);
     }
     
+    //Funzione fondamentale che si occupa di risolvere lo stack
     public boolean resolveStack(Giocatore g1, Giocatore g2, Board b){
         Spell a;
         boolean loose;

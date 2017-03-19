@@ -37,7 +37,7 @@ public class Draw implements Phase{
                             r = 0;
                     }
                 }while(r < 1 || r > 9);
-                player.hand.remove(r);
+                player.hand.remove(r-1);
             }
             else{
                 Card c = player.pescata();

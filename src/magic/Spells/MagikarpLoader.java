@@ -6,6 +6,10 @@ import magic.Creatures.Creature;
 import magic.Creatures.CreatureMagikarp;
 import magic.Giocatore;
 
+/*
+Loader (caricatore della creatura sul campo) della creature di debug
+*/
+
 public class MagikarpLoader implements Spell{
     
     private Giocatore g;

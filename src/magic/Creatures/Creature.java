@@ -3,6 +3,9 @@ package magic.Creatures;
 
 import magic.Stack;
 
+/*
+Interfaccia che specifica i metodi in comune di tutte le creature.
+*/
 
 public interface Creature {
     public String getName();

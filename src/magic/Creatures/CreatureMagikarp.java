@@ -5,6 +5,10 @@ import magic.Spells.MagikarpEffect;
 import magic.Spells.Spell;
 import magic.Stack;
 
+/*
+Semplice creatura per debug
+*/
+
 public class CreatureMagikarp implements Creature{
 
     private final int originAttack;

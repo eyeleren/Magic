@@ -6,6 +6,11 @@ import magic.Spells.Spell;
 import magic.Spells.OmeophatyEffect;
 import magic.Stack;
 
+/*
+Semplice carta di instantanea per debug
+*/
+
+
 public class Omeophaty implements Card{
 
     String name;
